@@ -1,0 +1,25 @@
+# Node
+node_modules/
+dist/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
