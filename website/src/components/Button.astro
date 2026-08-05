@@ -1,0 +1,20 @@
+---
+export interface Props {
+  href: string;
+  label: string;
+  variant?: "primary" | "secondary";
+}
+
+const {
+  href,
+  label,
+  variant = "primary"
+} = Astro.props;
+---
+
+<a
+  class={`button ${variant}`}
+  href={href}
+>
+  {label}
+</a>

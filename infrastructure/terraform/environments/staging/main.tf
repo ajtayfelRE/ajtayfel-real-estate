@@ -14,6 +14,7 @@ module "website_bucket" {
   environment = var.environment
 }
 
+
 module "cloudfront" {
   source = "../../modules/cloudfront"
 
@@ -22,8 +23,28 @@ module "cloudfront" {
   bucket_arn = module.website_bucket.bucket_arn
 
   environment = var.environment
+
+  certificate_arn = module.acm.certificate_arn
+
+  aliases = [
+    "ajtayfel.com",
+    "www.ajtayfel.com"
+  ]
 }
 
+module "acm" {
+  source = "../../modules/acm"
+
+  providers = {
+    aws = aws.us_east_1
+  }
+
+  domain_name = "ajtayfel.com"
+
+  subject_alternative_names = [
+    "www.ajtayfel.com"
+  ]
+}
 resource "aws_s3_bucket_policy" "website" {
 
   bucket = module.website_bucket.bucket_name

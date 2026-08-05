@@ -11,6 +11,8 @@ resource "aws_cloudfront_distribution" "website" {
 
   enabled = true
 
+  aliases = var.aliases
+ 	
   default_root_object = "index.html"
 
 
@@ -69,11 +71,13 @@ resource "aws_cloudfront_distribution" "website" {
   }
 
 
-  viewer_certificate {
+ viewer_certificate {
+  acm_certificate_arn = var.certificate_arn
 
-    cloudfront_default_certificate = true
+  ssl_support_method = "sni-only"
 
-  }
+  minimum_protocol_version = "TLSv1.2_2021"
+}
 
 
   tags = {

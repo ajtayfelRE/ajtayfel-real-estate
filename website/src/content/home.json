@@ -1,0 +1,19 @@
+{
+  "hero": {
+    "eyebrow": "Serving DuPage County & Chicago's Western Suburbs",
+    "headline": [
+      "Local Expertise.",
+      "Honest Guidance.",
+      "Exceptional Results."
+    ],
+    "description": "Helping buyers and sellers throughout DuPage County with personalized guidance, honest communication, and local market knowledge.",
+    "primaryButton": {
+      "label": "Get My Home Value",
+      "href": "/contact"
+    },
+    "secondaryButton": {
+      "label": "Schedule a Consultation",
+      "href": "/contact"
+    }
+  }
+}

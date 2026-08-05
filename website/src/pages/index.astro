@@ -1,17 +1,34 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/home/Hero.astro";
+import Stats from "../components/home/Stats.astro";
+import MeetAJ from "../components/home/MeetAJ.astro";
+import WhyChooseAJ from "../components/home/WhyChooseAJ.astro";
+import Services from "../components/home/Services.astro";
+import Communities from "../components/home/Communities.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+title="AJ Tayfel Real Estate"
+description="Helping buyers and sellers throughout Central Florida."
+>
+
+<Header />
+
+<Hero />
+
+  <Stats />
+
+  <MeetAJ />
+
+  <WhyChooseAJ />
+
+  <Services />
+
+  <Communities />
+
+<Footer />
+
+</BaseLayout>

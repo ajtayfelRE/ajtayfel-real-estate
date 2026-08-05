@@ -4,11 +4,22 @@ variable "bucket_name" {
 }
 
 variable "bucket_arn" {
-  description = "S3 bucket ARN used for permissions"
+  description = "S3 bucket ARN"
   type        = string
 }
 
 variable "environment" {
-  description = "Deployment environment"
+  description = "Environment name"
   type        = string
+}
+
+variable "certificate_arn" {
+  description = "ACM certificate ARN"
+  type        = string
+}
+
+variable "aliases" {
+  description = "Alternate domain names"
+  type        = list(string)
+  default     = []
 }

@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "About AJ Tayfel";
+---
+
+<BaseLayout title={pageTitle}>
+
+<section class="page-header">
+
+  <div class="container">
+
+    <h1>About AJ Tayfel</h1>
+
+    <p>
+      Helping buyers and sellers throughout DuPage County with
+      honest guidance, local knowledge, and personalized service.
+    </p>
+
+  </div>
+
+</section>
+
+<section class="about">
+
+  <div class="container about-grid">
+
+    <div>
+
+      <img
+        src="/images/aj-headshot.png"
+        alt="AJ Tayfel"
+      />
+
+    </div>
+
+    <div>
+
+      <h2>Local Knowledge. Personal Service.</h2>
+
+      <p>
+        As a DuPage County resident, I understand that every real estate
+        transaction represents an important milestone in someone's life.
+      </p>
+
+      <p>
+        Having lived in both Westmont and Bloomingdale, I've developed an
+        appreciation for the unique character of DuPage County communities
+        and the western suburbs of Chicago.
+      </p>
+
+      <p>
+        My goal is to provide clear communication, thoughtful advice, and
+        dedicated representation throughout every stage of the buying or
+        selling process.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</BaseLayout>
+
+<style>
+
+.page-header{
+  background:var(--background);
+  padding:5rem 0 3rem;
+  text-align:center;
+}
+
+.about{
+  padding:5rem 0;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:4rem;
+  align-items:start;
+}
+
+.about img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+}
+
+@media (max-width:900px){
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>

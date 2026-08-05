@@ -1,0 +1,93 @@
+<section class="meet-aj">
+
+  <div class="container meet-grid">
+
+    <div class="meet-image">
+
+      <img
+        src="/images/aj-headshot.png"
+        alt="AJ Tayfel, Real Estate Broker"
+      />
+
+    </div>
+
+    <div class="meet-content">
+
+      <p class="eyebrow">
+        Meet AJ
+      </p>
+
+      <h2 class="section-title">
+        Your Trusted DuPage County Real Estate Broker
+      </h2>
+
+      <p>
+        As a DuPage County resident and real estate professional, I understand
+        that buying or selling a home is one of life's biggest decisions.
+      </p>
+
+      <p>
+        Having lived in both Westmont and Bloomingdale, I appreciate what makes
+        DuPage County communities unique. My goal is to provide honest advice,
+        clear communication, and a personalized approach that helps you make
+        confident real estate decisions.
+      </p>
+
+      <p>
+        Whether you're purchasing your first home, moving into your next one,
+        or preparing to sell, I'm committed to making the experience as smooth
+        and successful as possible.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.meet-aj{
+  background:white;
+}
+
+.meet-grid{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:4rem;
+  align-items:center;
+}
+
+.meet-image img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+}
+
+.eyebrow{
+  color:var(--secondary);
+  text-transform:uppercase;
+  font-weight:700;
+  letter-spacing:.08em;
+  margin-bottom:.75rem;
+}
+
+.meet-content p{
+  margin-bottom:1.25rem;
+  color:var(--text-light);
+}
+
+@media (max-width:900px){
+
+  .meet-grid{
+    grid-template-columns:1fr;
+  }
+
+  .meet-image{
+    max-width:300px;
+    margin:auto;
+  }
+
+}
+
+</style>

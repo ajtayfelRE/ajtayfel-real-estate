@@ -3,7 +3,7 @@ output "aws_account_id" {
 }
 
 output "aws_region" {
-  value = data.aws_region.current.name
+  value = data.aws_region.current.region
 }
 
 output "resource_prefix" {
@@ -20,4 +20,8 @@ output "cloudfront_domain_name" {
 
 output "cloudfront_distribution_arn" {
   value = module.cloudfront.distribution_arn
+}
+
+output "certificate_arn" {
+  value = module.acm.certificate_arn
 }

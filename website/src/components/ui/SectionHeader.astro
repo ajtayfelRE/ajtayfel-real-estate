@@ -1,0 +1,43 @@
+---
+export interface Props {
+  eyebrow?: string;
+  title: string;
+  intro?: string;
+}
+
+const { eyebrow, title, intro } = Astro.props;
+---
+
+<div class="section-header">
+
+  {eyebrow && (
+    <p class="eyebrow">{eyebrow}</p>
+  )}
+
+  <h2 class="section-title">
+    {title}
+  </h2>
+
+  {intro && (
+    <p class="section-intro">
+      {intro}
+    </p>
+  )}
+
+</div>
+
+<style>
+
+.section-header{
+  margin-bottom:3rem;
+}
+
+.eyebrow{
+  color:var(--secondary);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:.75rem;
+}
+
+</style>
