@@ -17,7 +17,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: infrastructure/terraform/environments/stagingg
+        working-directory: infrastructure/terraform/environments/staging
 
     steps:
 
