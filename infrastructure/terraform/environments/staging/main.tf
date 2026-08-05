@@ -10,5 +10,49 @@ module "website_bucket" {
   source = "../../modules/s3"
 
   bucket_name = "${local.resource_prefix}-website"
+
   environment = var.environment
+}
+
+module "cloudfront" {
+  source = "../../modules/cloudfront"
+
+  bucket_name = module.website_bucket.bucket_name
+
+  bucket_arn = module.website_bucket.bucket_arn
+
+  environment = var.environment
+}
+
+resource "aws_s3_bucket_policy" "website" {
+
+  bucket = module.website_bucket.bucket_name
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+
+    Statement = [
+      {
+        Sid = "AllowCloudFrontRead"
+
+        Effect = "Allow"
+
+        Principal = {
+          Service = "cloudfront.amazonaws.com"
+        }
+
+        Action = [
+          "s3:GetObject"
+        ]
+
+        Resource = "${module.website_bucket.bucket_arn}/*"
+
+        Condition = {
+          StringEquals = {
+            "AWS:SourceArn" = module.cloudfront.distribution_arn
+          }
+        }
+      }
+    ]
+  })
 }

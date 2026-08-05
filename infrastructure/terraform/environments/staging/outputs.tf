@@ -1,14 +1,23 @@
 output "aws_account_id" {
-  description = "AWS account used by this environment"
-  value       = data.aws_caller_identity.current.account_id
+  value = data.aws_caller_identity.current.account_id
 }
 
 output "aws_region" {
-  description = "AWS region used by this environment"
-  value       = data.aws_region.current.region
+  value = data.aws_region.current.name
 }
 
 output "resource_prefix" {
-  description = "Prefix that will be used for staging resources"
-  value       = local.resource_prefix
+  value = local.resource_prefix
+}
+
+output "cloudfront_distribution_id" {
+  value = module.cloudfront.distribution_id
+}
+
+output "cloudfront_domain_name" {
+  value = module.cloudfront.domain_name
+}
+
+output "cloudfront_distribution_arn" {
+  value = module.cloudfront.distribution_arn
 }
