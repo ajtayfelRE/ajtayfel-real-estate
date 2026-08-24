@@ -1,44 +1,52 @@
 ---
 import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../config/site";
 
 export interface Props {
-  title: string;
+  title?: string;
   description?: string;
 }
 
 const {
-  title,
-  description = "Professional real estate services by AJ Tayfel."
+  title = site.website.title,
+  description = site.website.description
 } = Astro.props;
 ---
 
 <!doctype html>
-
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8" />
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
-/>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-<title>{title}</title>
+  <title>{title}</title>
 
-<meta
-name="description"
-content={description}
-/>
+  <meta
+    name="description"
+    content={description}
+  />
 
-<link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico" />
 
 </head>
 
 <body>
 
-<slot />
+  <Header />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
 
 </body>
 

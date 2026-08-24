@@ -21,6 +21,11 @@ export const navigation = [
   },
 
   {
+    label: "Relocation",
+    href: "/relocation"
+  },
+
+  {
     label: "About",
     href: "/about"
   },

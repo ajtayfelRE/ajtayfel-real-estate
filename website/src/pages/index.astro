@@ -1,7 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import Hero from "../components/home/Hero.astro";
 import Stats from "../components/home/Stats.astro";
 import MeetAJ from "../components/home/MeetAJ.astro";
@@ -11,13 +9,11 @@ import Communities from "../components/home/Communities.astro";
 ---
 
 <BaseLayout
-title="AJ Tayfel Real Estate"
-description="Helping buyers and sellers throughout Central Florida."
+  title="AJ Tayfel | REALTOR®"
+  description="Helping buyers and sellers throughout DuPage County and Chicago's western suburbs with honest guidance and local expertise."
 >
 
-<Header />
-
-<Hero />
+  <Hero />
 
   <Stats />
 
@@ -28,7 +24,5 @@ description="Helping buyers and sellers throughout Central Florida."
   <Services />
 
   <Communities />
-
-<Footer />
 
 </BaseLayout>
