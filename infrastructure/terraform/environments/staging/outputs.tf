@@ -25,3 +25,15 @@ output "cloudfront_distribution_arn" {
 output "certificate_arn" {
   value = module.acm.certificate_arn
 }
+
+output "relocation_lead_api_endpoint" {
+  value = module.relocation_leads.api_endpoint
+}
+
+output "relocation_lead_table_name" {
+  value = module.relocation_leads.table_name
+}
+
+output "relocation_lead_lambda_function_name" {
+  value = module.relocation_leads.lambda_function_name
+}
