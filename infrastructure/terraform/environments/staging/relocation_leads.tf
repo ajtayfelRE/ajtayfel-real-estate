@@ -8,6 +8,7 @@ module "relocation_leads" {
 
   allowed_origins = [
     "https://ajtayfel.com",
-    "https://www.ajtayfel.com"
+    "https://www.ajtayfel.com",
+    "http://localhost:4321"
   ]
 }
