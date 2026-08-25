@@ -1,0 +1,243 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import RelocationHero from "../../components/relocation/RelocationHero.astro";
+import DestinationCard from "../../components/relocation/DestinationCard.astro";
+---
+
+<BaseLayout
+  title="Moving Out of Illinois | AJ Tayfel Relocation Services"
+  description="Planning a move from Chicagoland? Get help coordinating the Illinois side of your move and connecting with a qualified real estate professional in your destination market."
+>
+
+  <RelocationHero
+    title="Moving Out of Illinois?"
+    description="A successful relocation involves more than finding a house in another state. I can help you plan the Illinois side of your move and coordinate an introduction to a qualified real estate professional in your destination market."
+  />
+
+  <section
+    id="how-it-works"
+    class="how-it-works"
+  >
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <p class="eyebrow">
+          A Coordinated Approach
+        </p>
+
+        <h2 class="section-title">
+          One move. Two real estate markets.
+        </h2>
+
+        <p class="section-intro">
+          If you're selling a home in Illinois and purchasing elsewhere,
+          the timing and communication between both sides of the move
+          can matter. The goal is to make that process easier to manage.
+        </p>
+
+      </div>
+
+      <div class="steps">
+
+        <article class="card">
+          <span>01</span>
+          <h3>Plan the Illinois side</h3>
+          <p>
+            Start with your current home, your timeline, and what needs
+            to happen before you relocate.
+          </p>
+        </article>
+
+        <article class="card">
+          <span>02</span>
+          <h3>Identify your destination needs</h3>
+          <p>
+            Clarify where you're moving, whether you're buying, and what
+            type of local real estate support you'll need.
+          </p>
+        </article>
+
+        <article class="card">
+          <span>03</span>
+          <h3>Coordinate the introduction</h3>
+          <p>
+            When appropriate, I can connect you with a real estate
+            professional serving your destination market.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section
+    id="destinations"
+    class="destinations"
+  >
+
+    <div class="container">
+
+      <p class="eyebrow">
+        Relocation Guides
+      </p>
+
+      <h2 class="section-title">
+        Popular destinations we're exploring
+      </h2>
+
+      <p class="section-intro">
+        These guides are designed for Chicago-area homeowners who are
+        considering an out-of-state move and want to understand how to
+        coordinate both sides of the transition.
+      </p>
+
+      <div class="destination-grid">
+
+        <DestinationCard
+          title="Chicago to Southwest Florida"
+          description="Planning a move toward Fort Myers, Cape Coral, Naples, Sarasota, or surrounding Southwest Florida communities? Start here."
+          href="/relocation/chicago-to-southwest-florida/"
+        />
+
+        <DestinationCard
+          title="Chicago to Northwest Indiana"
+          description="Considering Lake County, Porter County, or another Northwest Indiana community while leaving the Chicago area? Start here."
+          href="/relocation/chicago-to-northwest-indiana/"
+        />
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="cta">
+
+    <div class="container cta-inner">
+
+      <div>
+
+        <p class="eyebrow">
+          Planning Ahead?
+        </p>
+
+        <h2>
+          Your move doesn't have to be coordinated alone.
+        </h2>
+
+        <p>
+          Whether you're still researching or already preparing to sell,
+          we can start by looking at your timeline and destination.
+        </p>
+
+      </div>
+
+      <a
+        href="/contact"
+        class="button primary"
+      >
+        Start a Conversation
+      </a>
+
+    </div>
+
+  </section>
+
+</BaseLayout>
+
+
+<style>
+
+.how-it-works {
+  background: var(--background);
+}
+
+.section-heading {
+  max-width: 780px;
+}
+
+.eyebrow {
+  margin-bottom: .75rem;
+  color: var(--secondary);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.steps span {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  color: var(--secondary);
+  font-weight: 800;
+}
+
+.steps h3 {
+  margin-bottom: .75rem;
+  color: var(--primary);
+}
+
+.steps p {
+  color: var(--text-light);
+}
+
+.destinations {
+  background: white;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.cta {
+  background: var(--primary);
+  color: white;
+}
+
+.cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.cta h2 {
+  max-width: 720px;
+  margin-bottom: .75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.cta p:not(.eyebrow) {
+  max-width: 700px;
+  color: rgba(255,255,255,.8);
+}
+
+@media (max-width: 850px) {
+
+  .steps,
+  .destination-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+</style>

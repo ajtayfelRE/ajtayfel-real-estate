@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import RelocationHero from "../../components/relocation/RelocationHero.astro";
+---
+
+<BaseLayout
+  title="Moving From Chicago to Northwest Indiana | AJ Tayfel"
+  description="A relocation guide for Chicago-area homeowners considering a move to Northwest Indiana."
+>
+
+  <RelocationHero
+    eyebrow="Chicago → Northwest Indiana"
+    title="Considering a Move From Chicago to Northwest Indiana?"
+    description="This guide is being developed for Chicago-area homeowners considering Lake County, Porter County, and surrounding Northwest Indiana communities."
+  />
+
+  <section>
+
+    <div class="container content">
+
+      <p class="eyebrow">
+        Relocation Planning
+      </p>
+
+      <h2 class="section-title">
+        A cross-border move with two local markets.
+      </h2>
+
+      <p>
+        Northwest Indiana can create a unique relocation situation:
+        you're moving across state lines while remaining closely
+        connected to the greater Chicago region.
+      </p>
+
+      <p>
+        This page will become a detailed guide for homeowners who need
+        to coordinate an Illinois sale with a potential purchase in
+        Northwest Indiana.
+      </p>
+
+      <a
+        href="/relocation/"
+        class="button secondary"
+      >
+        Back to Relocation
+      </a>
+
+    </div>
+
+  </section>
+
+</BaseLayout>
+
+<style>
+
+.content {
+  max-width: 820px;
+}
+
+.eyebrow {
+  margin-bottom: .75rem;
+  color: var(--secondary);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  font-size: 1.08rem;
+}
+
+.content .button {
+  margin-top: 1rem;
+}
+
+</style>

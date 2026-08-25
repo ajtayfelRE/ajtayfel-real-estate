@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import RelocationHero from "../../components/relocation/RelocationHero.astro";
+---
+
+<BaseLayout
+  title="Moving From Chicago to Southwest Florida | AJ Tayfel"
+  description="A relocation guide for Chicago-area homeowners considering a move to Southwest Florida."
+>
+
+  <RelocationHero
+    eyebrow="Chicago → Southwest Florida"
+    title="Planning a Move From Chicago to Southwest Florida?"
+    description="This guide is being developed for Illinois homeowners considering Fort Myers, Cape Coral, Naples, Sarasota, and surrounding Southwest Florida communities."
+  />
+
+  <section>
+
+    <div class="container content">
+
+      <p class="eyebrow">
+        Relocation Planning
+      </p>
+
+      <h2 class="section-title">
+        Coordinate the move from both ends.
+      </h2>
+
+      <p>
+        If you own a home in Illinois and plan to purchase in Florida,
+        there are two real estate timelines to consider. The Illinois
+        sale and the destination purchase may need to work together.
+      </p>
+
+      <p>
+        This page will become a detailed homeowner-focused relocation
+        guide covering planning, timing, destination research, and the
+        process of connecting with a qualified real estate professional
+        in Southwest Florida.
+      </p>
+
+      <a
+        href="/relocation/"
+        class="button secondary"
+      >
+        Back to Relocation
+      </a>
+
+    </div>
+
+  </section>
+
+</BaseLayout>
+
+<style>
+
+.content {
+  max-width: 820px;
+}
+
+.eyebrow {
+  margin-bottom: .75rem;
+  color: var(--secondary);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  font-size: 1.08rem;
+}
+
+.content .button {
+  margin-top: 1rem;
+}
+
+</style>
