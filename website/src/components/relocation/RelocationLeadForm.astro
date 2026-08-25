@@ -1,0 +1,504 @@
+---
+const apiUrl = import.meta.env.PUBLIC_RELOCATION_API_URL ?? "";
+---
+
+<section class="lead-section" aria-labelledby="relocation-form-heading">
+  <div class="lead-shell">
+    <div class="lead-intro">
+      <p class="eyebrow">Relocation Planning</p>
+
+      <h2 id="relocation-form-heading">
+        Planning a move from Illinois to Southwest Florida?
+      </h2>
+
+      <p>
+        Tell me a little about your move. I can help coordinate the Illinois
+        side and connect you with an appropriate real estate professional in
+        Southwest Florida when needed.
+      </p>
+
+      <p class="lead-note">
+        No obligation. This is simply the starting point for understanding
+        your timing, locations, and real estate needs.
+      </p>
+    </div>
+
+    <form
+      id="relocation-lead-form"
+      class="lead-form"
+      data-api-url={apiUrl}
+    >
+      <div class="form-grid">
+        <div class="field">
+          <label for="first_name">First name</label>
+          <input
+            id="first_name"
+            name="first_name"
+            type="text"
+            autocomplete="given-name"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="last_name">Last name</label>
+          <input
+            id="last_name"
+            name="last_name"
+            type="text"
+            autocomplete="family-name"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone <span>(optional)</span></label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+          />
+        </div>
+
+        <div class="field">
+          <label for="current_city">Current city</label>
+          <input
+            id="current_city"
+            name="current_city"
+            type="text"
+            autocomplete="address-level2"
+            placeholder="Chicago, Naperville, Wheaton..."
+          />
+        </div>
+
+        <div class="field">
+          <label for="current_state">Current state</label>
+          <input
+            id="current_state"
+            name="current_state"
+            type="text"
+            value="IL"
+            maxlength="2"
+            autocomplete="address-level1"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="destination_city">
+            Southwest Florida destination
+          </label>
+
+          <select id="destination_city" name="destination_city">
+            <option value="">Not sure yet</option>
+            <option value="Fort Myers">Fort Myers</option>
+            <option value="Cape Coral">Cape Coral</option>
+            <option value="Naples">Naples</option>
+            <option value="Bonita Springs">Bonita Springs</option>
+            <option value="Estero">Estero</option>
+            <option value="Marco Island">Marco Island</option>
+            <option value="Other Southwest Florida">
+              Other Southwest Florida
+            </option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="relocation_type">What do you expect to do?</label>
+
+          <select
+            id="relocation_type"
+            name="relocation_type"
+            required
+          >
+            <option value="">Select one</option>
+            <option value="both">
+              Sell in Illinois and buy in Florida
+            </option>
+            <option value="selling">
+              Sell in Illinois
+            </option>
+            <option value="buying">
+              Buy in Florida
+            </option>
+            <option value="researching">
+              Still researching
+            </option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="timeframe">Expected timeframe</label>
+
+          <select id="timeframe" name="timeframe" required>
+            <option value="">Select one</option>
+            <option value="0-3 months">0–3 months</option>
+            <option value="3-6 months">3–6 months</option>
+            <option value="6-12 months">6–12 months</option>
+            <option value="12+ months">12+ months</option>
+            <option value="not sure">Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="price_range">
+            Approximate Florida purchase range
+          </label>
+
+          <select id="price_range" name="price_range">
+            <option value="">Not sure / not applicable</option>
+            <option value="under-300k">Under $300,000</option>
+            <option value="300k-500k">$300,000–$500,000</option>
+            <option value="500k-750k">$500,000–$750,000</option>
+            <option value="750k-1m">$750,000–$1 million</option>
+            <option value="1m+">$1 million+</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="has_agent">
+            Are you already working with a real estate agent?
+          </label>
+
+          <select id="has_agent" name="has_agent">
+            <option value="">Select one</option>
+            <option value="no">No</option>
+            <option value="illinois">
+              Yes, in Illinois only
+            </option>
+            <option value="florida">
+              Yes, in Florida only
+            </option>
+            <option value="both">
+              Yes, in both markets
+            </option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="notes">
+            Anything else I should know? <span>(optional)</span>
+          </label>
+
+          <textarea
+            id="notes"
+            name="notes"
+            rows="5"
+            maxlength="2000"
+            placeholder="Neighborhoods, timing, home to sell, questions, or anything else about the move."
+          ></textarea>
+        </div>
+      </div>
+
+      <input
+        type="hidden"
+        name="destination_state"
+        value="FL"
+      />
+
+      <input
+        type="hidden"
+        name="source"
+        value="chicago-to-southwest-florida"
+      />
+
+      <div class="honeypot" aria-hidden="true">
+        <label for="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+        />
+      </div>
+
+      <label class="consent">
+        <input
+          id="consent_contact"
+          name="consent_contact"
+          type="checkbox"
+          required
+        />
+
+        <span>
+          I agree that AJ Tayfel may contact me about this relocation request.
+        </span>
+      </label>
+
+      <button id="submit-button" class="submit-button" type="submit">
+        Start My Relocation Plan
+      </button>
+
+      <p
+        id="form-status"
+        class="form-status"
+        role="status"
+        aria-live="polite"
+      ></p>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>(
+    "#relocation-lead-form"
+  );
+
+  const status = document.querySelector<HTMLElement>("#form-status");
+
+  const submitButton = document.querySelector<HTMLButtonElement>(
+    "#submit-button"
+  );
+
+  if (form && status && submitButton) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const apiUrl = form.dataset.apiUrl;
+
+      if (!apiUrl) {
+        status.textContent =
+          "The relocation form is temporarily unavailable. Please try again later.";
+        status.dataset.state = "error";
+        return;
+      }
+
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      payload.consent_contact =
+        formData.get("consent_contact") === "on";
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+
+      status.textContent = "";
+      status.dataset.state = "";
+
+      try {
+        const response = await fetch(
+          `${apiUrl}/leads/relocation`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          }
+        );
+
+        let data = {};
+
+        try {
+          data = await response.json();
+        } catch {
+          // A non-JSON response will be handled below.
+        }
+
+        if (!response.ok) {
+          throw new Error("Submission failed");
+        }
+
+        form.reset();
+
+        status.textContent =
+          "Thanks — your relocation request was received. I’ll review the details and follow up.";
+        status.dataset.state = "success";
+      } catch (error) {
+        console.error(error);
+
+        status.textContent =
+          "Something went wrong while sending your request. Please try again.";
+        status.dataset.state = "error";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Start My Relocation Plan";
+      }
+    });
+  }
+</script>
+
+<style>
+  .lead-section {
+    padding: clamp(3.5rem, 7vw, 6rem) 1.25rem;
+    background: #f7f7f7;
+  }
+
+  .lead-shell {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .lead-intro {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .lead-intro h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.05;
+  }
+
+  .lead-intro p {
+    line-height: 1.7;
+  }
+
+  .lead-note {
+    font-size: 0.95rem;
+    opacity: 0.8;
+  }
+
+  .lead-form {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 3rem rgb(0 0 0 / 0.06);
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .field.full {
+    grid-column: 1 / -1;
+  }
+
+  .field label {
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+
+  .field label span {
+    font-weight: 400;
+    opacity: 0.7;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid #cfcfcf;
+    border-radius: 0.45rem;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  .field textarea {
+    resize: vertical;
+  }
+
+  .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+
+  .consent input {
+    margin-top: 0.25rem;
+  }
+
+  .submit-button {
+    width: 100%;
+    min-height: 3.1rem;
+    border: 0;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    background: #b31b1b;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+  }
+
+  .submit-button:hover {
+    filter: brightness(0.94);
+  }
+
+  .submit-button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+
+  .form-status {
+    min-height: 1.5rem;
+    margin: 1rem 0 0;
+    font-weight: 600;
+  }
+
+  .form-status[data-state="success"] {
+    color: #176b38;
+  }
+
+  .form-status[data-state="error"] {
+    color: #9f1d1d;
+  }
+
+  .honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 800px) {
+    .lead-shell,
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .lead-intro {
+      position: static;
+    }
+  }
+</style>
