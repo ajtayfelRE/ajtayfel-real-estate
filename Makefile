@@ -1,4 +1,6 @@
-.PHONY: help
+TF_DIR := infrastructure/terraform/environments/staging
+
+.PHONY: help install dev fmt validate plan apply clean
 
 help:
 	@echo ""
@@ -21,16 +23,19 @@ dev:
 	cd website && npm run dev
 
 fmt:
-	cd infrastructure/terraform/bootstrap && terraform fmt -recursive
+	terraform -chdir=$(TF_DIR) fmt -recursive
 
 validate:
-	cd infrastructure/terraform/bootstrap && terraform validate
+	terraform -chdir=$(TF_DIR) init -backend=false
+	terraform -chdir=$(TF_DIR) validate
 
 plan:
-	cd infrastructure/terraform/bootstrap && terraform plan
+	terraform -chdir=$(TF_DIR) init -backend-config=backend.hcl
+	terraform -chdir=$(TF_DIR) plan
 
 apply:
-	cd infrastructure/terraform/bootstrap && terraform apply
+	terraform -chdir=$(TF_DIR) init -backend-config=backend.hcl
+	terraform -chdir=$(TF_DIR) apply
 
 clean:
 	find . -name ".terraform" -type d -exec rm -rf {} +
