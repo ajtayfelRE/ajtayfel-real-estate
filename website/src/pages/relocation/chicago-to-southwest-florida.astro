@@ -80,7 +80,11 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
 
       <div class="destination-grid">
         <article class="destination-card">
-          <h3>Fort Myers</h3>
+          <h3>
+            <a href="/relocation/chicago-to-fort-myers/">
+              Fort Myers
+            </a>
+          </h3>
           <p>
             A central Southwest Florida option with a broad mix of
             neighborhoods, housing types, and access to surrounding
@@ -289,6 +293,27 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
             Read the guide →
           </a>
         </article>
+        <article class="resource-card">
+          <p class="resource-label">Destination Guide</p>
+
+          <h3>
+            <a href="/relocation/chicago-to-fort-myers/">
+              Moving From Chicago to Fort Myers, Florida
+            </a>
+          </h3>
+
+          <p>
+            A homeowner-focused guide to coordinating an Illinois home sale
+            with a move and potential purchase in Fort Myers.
+          </p>
+
+          <a
+            class="resource-link"
+            href="/relocation/chicago-to-fort-myers/"
+          >
+            Read the guide →
+          </a>
+        </article>
       </div>
     </div>
   </section>
@@ -419,6 +444,12 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
+  }
+
+  .destination-card h3 a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: .18em;
   }
 
   .destination-card {
