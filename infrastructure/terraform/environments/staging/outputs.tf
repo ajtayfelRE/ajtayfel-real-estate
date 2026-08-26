@@ -10,6 +10,11 @@ output "resource_prefix" {
   value = local.resource_prefix
 }
 
+
+output "website_bucket_name" {
+  value = module.website_bucket.bucket_name
+}
+
 output "cloudfront_distribution_id" {
   value = module.cloudfront.distribution_id
 }
