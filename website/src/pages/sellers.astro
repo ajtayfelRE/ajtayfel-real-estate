@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+---
+
+<BaseLayout
+  title="Selling Your Home | AJ Tayfel REALTOR®"
+  description="Home selling guidance for property owners throughout DuPage County and Chicago's western suburbs."
+>
+  <section class="page-header">
+    <div class="container">
+      <h1>Selling Your Home</h1>
+      <p>
+        Thoughtful preparation, clear communication, and a focused selling strategy.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container content-grid">
+      <div>
+        <h2>Plan the Sale Before the Sign Goes Up</h2>
+        <p>
+          A successful sale starts with understanding your goals, timing,
+          property condition, local competition, and the steps required to
+          bring the home to market.
+        </p>
+
+        <p>
+          I help sellers build a practical plan, prepare the property,
+          evaluate offers, and stay informed through closing.
+        </p>
+
+        <Button href="/contact/" label="Discuss Selling Your Home" />
+      </div>
+
+      <div class="card">
+        <h3>Seller Support</h3>
+        <ul>
+          <li>Pre-listing consultation</li>
+          <li>Pricing and market positioning</li>
+          <li>Property preparation guidance</li>
+          <li>Showing and offer coordination</li>
+          <li>Contract-to-closing support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-header {
+  padding: 5rem 0 3rem;
+  text-align: center;
+  background: var(--background);
+}
+
+.content-section {
+  padding: 5rem 0;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.card ul {
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

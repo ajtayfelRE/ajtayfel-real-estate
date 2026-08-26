@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+---
+
+<BaseLayout
+  title="Buying a Home | AJ Tayfel REALTOR®"
+  description="Guidance for home buyers throughout DuPage County and Chicago's western suburbs."
+>
+  <section class="page-header">
+    <div class="container">
+      <h1>Buying a Home</h1>
+      <p>
+        Clear guidance from your first showing through closing.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container content-grid">
+      <div>
+        <h2>A More Organized Buying Process</h2>
+        <p>
+          Buying a home involves more than finding the right property.
+          I help buyers understand the process, evaluate options, prepare
+          competitive offers, and stay organized through inspections,
+          financing, and closing.
+        </p>
+
+        <p>
+          My focus is on helping you make informed decisions without
+          unnecessary pressure.
+        </p>
+
+        <Button href="/contact/" label="Start Your Home Search" />
+      </div>
+
+      <div class="card">
+        <h3>How I Can Help</h3>
+        <ul>
+          <li>Home search planning</li>
+          <li>Property and neighborhood guidance</li>
+          <li>Showing coordination</li>
+          <li>Offer strategy</li>
+          <li>Inspection and closing coordination</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-header {
+  padding: 5rem 0 3rem;
+  text-align: center;
+  background: var(--background);
+}
+
+.content-section {
+  padding: 5rem 0;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.card ul {
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+---
+
+<BaseLayout
+  title="DuPage County Communities | AJ Tayfel REALTOR®"
+  description="Explore communities throughout DuPage County and Chicago's western suburbs."
+>
+  <section class="page-header">
+    <div class="container">
+      <h1>Communities</h1>
+      <p>
+        Explore DuPage County and Chicago's western suburbs.
+      </p>
+    </div>
+  </section>
+
+  <section class="communities-section">
+    <div class="container">
+      <div class="community-grid">
+        <article class="card">
+          <h2>Naperville</h2>
+          <p>
+            A major DuPage County community with a wide range of neighborhoods,
+            housing styles, amenities, and transportation options.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Westmont</h2>
+          <p>
+            A western suburb with convenient transportation access and a mix
+            of residential options.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Bloomingdale</h2>
+          <p>
+            A DuPage County community offering established neighborhoods and
+            access to surrounding western suburban amenities.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Western Suburbs</h2>
+          <p>
+            Not sure which community fits your priorities? We can compare
+            locations, housing options, and commute considerations together.
+          </p>
+        </article>
+      </div>
+
+      <div class="cta">
+        <Button href="/contact/" label="Talk About Your Home Search" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-header {
+  padding: 5rem 0 3rem;
+  text-align: center;
+  background: var(--background);
+}
+
+.communities-section {
+  padding: 5rem 0;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.cta {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

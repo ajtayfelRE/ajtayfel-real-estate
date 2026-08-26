@@ -7,19 +7,74 @@ import { site } from "../config/site";
 export interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  noindex?: boolean;
 }
 
 const {
   title = site.website.title,
-  description = site.website.description
+  description = site.website.description,
+  image = "/images/aj-headshot.png",
+  noindex = false
 } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("https://ajtayfel.com");
+
+const currentPath = Astro.url.pathname;
+
+const canonicalPath =
+  currentPath === "/"
+    ? "/"
+    : currentPath.endsWith("/")
+      ? currentPath
+      : `${currentPath}/`;
+
+const canonicalUrl = new URL(canonicalPath, siteUrl);
+const imageUrl = new URL(image, siteUrl);
+
+const sameAs = Object.values(site.social).filter(Boolean);
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl.href}#website`,
+      url: siteUrl.href,
+      name: site.website.title,
+      description: site.website.description,
+      inLanguage: "en-US"
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl.href}#aj-tayfel`,
+      name: site.agent.fullName,
+      url: siteUrl.href,
+      image: imageUrl.href,
+      jobTitle: site.agent.title,
+      telephone: site.contact.phone,
+      email: site.contact.email,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: site.address.city,
+        addressRegion: site.address.state,
+        addressCountry: "US"
+      },
+      areaServed: site.agent.market,
+      worksFor: {
+        "@type": "Organization",
+        name: site.agent.brokerage
+      },
+      ...(sameAs.length > 0 ? { sameAs } : {})
+    }
+  ]
+};
 ---
 
 <!doctype html>
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8" />
 
   <meta
@@ -34,13 +89,43 @@ const {
     content={description}
   />
 
+  <meta
+    name="robots"
+    content={
+      noindex
+        ? "noindex, nofollow"
+        : "index, follow, max-image-preview:large"
+    }
+  />
+
+  <link
+    rel="canonical"
+    href={canonicalUrl.href}
+  />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AJ Tayfel" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl.href} />
+  <meta property="og:image" content={imageUrl.href} />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={imageUrl.href} />
+
   <link rel="icon" href="/favicon.ico?v=2" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
 
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  ></script>
 </head>
 
 <body>
-
   <Header />
 
   <main>
@@ -48,7 +133,6 @@ const {
   </main>
 
   <Footer />
-
 </body>
 
 </html>

@@ -7,32 +7,32 @@ export const navigation = [
 
   {
     label: "Buyers",
-    href: "/buyers"
+    href: "/buyers/"
   },
 
   {
     label: "Sellers",
-    href: "/sellers"
+    href: "/sellers/"
   },
 
   {
     label: "Communities",
-    href: "/communities"
+    href: "/communities/"
   },
 
   {
     label: "Relocation",
-    href: "/relocation"
+    href: "/relocation/"
   },
 
   {
     label: "About",
-    href: "/about"
+    href: "/about/"
   },
 
   {
     label: "Contact",
-    href: "/contact"
+    href: "/contact/"
   }
 
 ];
