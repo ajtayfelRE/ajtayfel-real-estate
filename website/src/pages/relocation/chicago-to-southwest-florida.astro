@@ -229,6 +229,47 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
     </div>
   </section>
 
+  <section class="resources-section">
+    <div class="container">
+      <p class="eyebrow">Relocation Resources</p>
+
+      <h2 class="section-title">
+        Planning your Illinois-to-Florida move
+      </h2>
+
+      <p class="section-intro">
+        These homeowner-focused guides cover the decisions that often come
+        up when selling in Illinois and preparing for a move to Florida.
+      </p>
+
+      <div class="resource-grid">
+        <article class="resource-card">
+          <p class="resource-label">Home Sale Planning</p>
+
+          <h3>
+            <a
+              href="/relocation/selling-illinois-home-before-moving-to-florida/"
+            >
+              Selling Your Illinois Home Before Moving to Florida
+            </a>
+          </h3>
+
+          <p>
+            Learn how to think through listing preparation, transaction
+            timing, closing coordination, and planning for the next home.
+          </p>
+
+          <a
+            class="resource-link"
+            href="/relocation/selling-illinois-home-before-moving-to-florida/"
+          >
+            Read the guide →
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="faq-section">
     <div class="container narrow">
       <p class="eyebrow">Frequently Asked Questions</p>
@@ -420,6 +461,57 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
     margin-bottom: .75rem;
   }
 
+  .resources-section {
+    background: var(--background);
+  }
+
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .resource-card {
+    padding: 2rem;
+    border: 1px solid rgba(11, 60, 93, .12);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+
+  .resource-label {
+    margin-bottom: .65rem;
+    color: var(--secondary);
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .resource-card h3 {
+    margin-bottom: .8rem;
+    color: var(--primary);
+    font-size: 1.35rem;
+  }
+
+  .resource-card h3 a,
+  .resource-link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: .18em;
+  }
+
+  .resource-card > p:not(.resource-label) {
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .resource-link {
+    display: inline-block;
+    margin-top: .75rem;
+    font-weight: 700;
+  }
+
   .faq-list {
     margin-top: 2rem;
   }
@@ -443,7 +535,8 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
 
   @media (max-width: 850px) {
     .destination-grid,
-    .coordination-grid {
+    .coordination-grid,
+    .resource-grid {
       grid-template-columns: 1fr;
     }
   }
