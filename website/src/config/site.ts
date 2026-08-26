@@ -10,8 +10,8 @@ export const site = {
   },
 
   contact: {
-    phone: "",
-    email: "",
+    phone: "630-945-1710",
+    email: "AJ@AJTayfel.com",
     office: "Real People Realty"
   },
 
