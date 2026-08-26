@@ -169,6 +169,14 @@ resource "aws_apigatewayv2_route" "relocation_lead" {
   target = "integrations/${aws_apigatewayv2_integration.lambda.id}"
 }
 
+resource "aws_apigatewayv2_route" "contact_lead" {
+  api_id = aws_apigatewayv2_api.leads.id
+
+  route_key = "POST /leads/contact"
+
+  target = "integrations/${aws_apigatewayv2_integration.lambda.id}"
+}
+
 resource "aws_apigatewayv2_stage" "default" {
   api_id = aws_apigatewayv2_api.leads.id
 

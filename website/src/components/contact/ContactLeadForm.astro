@@ -1,0 +1,328 @@
+---
+const apiUrl = import.meta.env.PUBLIC_RELOCATION_API_URL ?? "";
+---
+
+<form
+  id="contact-lead-form"
+  class="contact-form"
+  data-api-url={apiUrl}
+>
+  <div class="form-grid">
+    <div class="field">
+      <label for="contact_first_name">First name</label>
+      <input
+        id="contact_first_name"
+        name="first_name"
+        type="text"
+        autocomplete="given-name"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label for="contact_last_name">Last name</label>
+      <input
+        id="contact_last_name"
+        name="last_name"
+        type="text"
+        autocomplete="family-name"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label for="contact_email">Email</label>
+      <input
+        id="contact_email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label for="contact_phone">
+        Phone <span>(optional)</span>
+      </label>
+      <input
+        id="contact_phone"
+        name="phone"
+        type="tel"
+        autocomplete="tel"
+      />
+    </div>
+
+    <div class="field full">
+      <label for="contact_inquiry_type">
+        How can I help?
+      </label>
+
+      <select
+        id="contact_inquiry_type"
+        name="inquiry_type"
+        required
+      >
+        <option value="">Select one</option>
+        <option value="buying">Buying a home</option>
+        <option value="selling">Selling a home</option>
+        <option value="relocation">Relocation</option>
+        <option value="general">General real estate question</option>
+      </select>
+    </div>
+
+    <div class="field full">
+      <label for="contact_message">Message</label>
+      <textarea
+        id="contact_message"
+        name="message"
+        rows="6"
+        maxlength="2000"
+        required
+        placeholder="Tell me a little about what you're planning."
+      ></textarea>
+    </div>
+  </div>
+
+  <input
+    type="hidden"
+    name="source"
+    value="contact-page"
+  />
+
+  <div class="honeypot" aria-hidden="true">
+    <label for="contact_website">Website</label>
+    <input
+      id="contact_website"
+      name="website"
+      type="text"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </div>
+
+  <label class="consent">
+    <input
+      name="consent_contact"
+      type="checkbox"
+      required
+    />
+
+    <span>
+      I agree that AJ Tayfel may contact me about this real estate inquiry.
+    </span>
+  </label>
+
+  <button
+    id="contact-submit-button"
+    class="submit-button"
+    type="submit"
+  >
+    Send My Message
+  </button>
+
+  <p
+    id="contact-form-status"
+    class="form-status"
+    role="status"
+    aria-live="polite"
+  ></p>
+</form>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>(
+    "#contact-lead-form"
+  );
+
+  const status = document.querySelector<HTMLElement>(
+    "#contact-form-status"
+  );
+
+  const submitButton = document.querySelector<HTMLButtonElement>(
+    "#contact-submit-button"
+  );
+
+  if (form && status && submitButton) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const apiUrl = form.dataset.apiUrl;
+
+      if (!apiUrl) {
+        status.textContent =
+          "The contact form is temporarily unavailable. Please call or email me directly.";
+        status.dataset.state = "error";
+        return;
+      }
+
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      payload.consent_contact =
+        formData.get("consent_contact") === "on";
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+
+      status.textContent = "";
+      status.dataset.state = "";
+
+      try {
+        const response = await fetch(
+          `${apiUrl}/leads/contact`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Submission failed");
+        }
+
+        form.reset();
+
+        status.textContent =
+          "Thanks — your message was received. I’ll review it and follow up.";
+        status.dataset.state = "success";
+      } catch (error) {
+        console.error(error);
+
+        status.textContent =
+          "Something went wrong while sending your message. Please call or email me directly.";
+        status.dataset.state = "error";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send My Message";
+      }
+    });
+  }
+</script>
+
+<style>
+  .contact-form {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 3rem rgb(0 0 0 / 0.06);
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .field.full {
+    grid-column: 1 / -1;
+  }
+
+  .field label {
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+
+  .field label span {
+    font-weight: 400;
+    opacity: 0.7;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid #cfcfcf;
+    border-radius: 0.45rem;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  .field textarea {
+    resize: vertical;
+  }
+
+  .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+
+  .consent input {
+    margin-top: 0.25rem;
+  }
+
+  .submit-button {
+    width: 100%;
+    min-height: 3.1rem;
+    border: 0;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    background: #b31b1b;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+  }
+
+  .submit-button:hover {
+    filter: brightness(0.94);
+  }
+
+  .submit-button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+
+  .form-status {
+    min-height: 1.5rem;
+    margin: 1rem 0 0;
+    font-weight: 600;
+  }
+
+  .form-status[data-state="success"] {
+    color: #176b38;
+  }
+
+  .form-status[data-state="error"] {
+    color: #9f1d1d;
+  }
+
+  .honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 700px) {
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

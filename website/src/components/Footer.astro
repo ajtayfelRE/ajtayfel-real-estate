@@ -126,8 +126,16 @@ const phoneHref = site.contact.phone.replace(/[^\d+]/g, "");
     letter-spacing: .08em;
   }
 
-  .footer-contact a:hover {
+  .footer-contact a {
+    color: white;
+    font-weight: 700;
     text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+
+  .footer-contact a:hover,
+  .footer-contact a:focus-visible {
+    text-decoration-thickness: 2px;
   }
 
   .footer-compliance {
