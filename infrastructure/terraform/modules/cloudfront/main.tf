@@ -7,6 +7,29 @@ resource "aws_cloudfront_origin_access_control" "website" {
 }
 
 
+
+resource "aws_cloudfront_function" "clean_urls" {
+  name    = "website-clean-urls-${var.environment}"
+  runtime = "cloudfront-js-2.0"
+  comment = "Rewrite clean Astro routes to directory index files"
+  publish = true
+
+  code = <<-EOT
+function handler(event) {
+    var request = event.request;
+    var uri = request.uri;
+
+    if (uri.endsWith('/')) {
+        request.uri += 'index.html';
+    } else if (!uri.split('/').pop().includes('.')) {
+        request.uri += '/index.html';
+    }
+
+    return request;
+}
+EOT
+}
+
 resource "aws_cloudfront_distribution" "website" {
 
   enabled = true
@@ -46,6 +69,12 @@ resource "aws_cloudfront_distribution" "website" {
 
     viewer_protocol_policy = "redirect-to-https"
 
+
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.clean_urls.arn
+    }
 
     forwarded_values {
 
