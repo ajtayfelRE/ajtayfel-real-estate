@@ -17,3 +17,9 @@ variable "allowed_origins" {
   description = "Origins permitted by API Gateway CORS."
   type        = list(string)
 }
+
+variable "notification_email" {
+  description = "Verified SES email used for relocation lead notifications."
+  type        = string
+  sensitive   = true
+}

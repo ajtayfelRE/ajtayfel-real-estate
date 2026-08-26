@@ -20,3 +20,9 @@ variable "project_name" {
   type        = string
   default     = "ajtayfel-real-estate"
 }
+
+variable "notification_email" {
+  description = "Verified SES email used for relocation lead notifications."
+  type        = string
+  sensitive   = true
+}

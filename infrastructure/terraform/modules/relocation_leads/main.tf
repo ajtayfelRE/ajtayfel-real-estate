@@ -2,6 +2,8 @@ locals {
   name_prefix = "${var.project_name}-${var.environment}-relocation-leads"
 }
 
+data "aws_caller_identity" "current" {}
+
 resource "aws_dynamodb_table" "leads" {
   name         = local.name_prefix
   billing_mode = "PAY_PER_REQUEST"
@@ -77,6 +79,28 @@ resource "aws_iam_role_policy" "dynamodb" {
   })
 }
 
+
+resource "aws_iam_role_policy" "ses" {
+  name = "${local.name_prefix}-ses"
+  role = aws_iam_role.lambda.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+
+    Statement = [
+      {
+        Effect = "Allow"
+
+        Action = [
+          "ses:SendEmail"
+        ]
+
+        Resource = "arn:aws:ses:*:${data.aws_caller_identity.current.account_id}:identity/${var.notification_email}"
+      }
+    ]
+  })
+}
+
 resource "aws_cloudwatch_log_group" "lambda" {
   name              = "/aws/lambda/${local.name_prefix}"
   retention_in_days = 30
@@ -97,7 +121,9 @@ resource "aws_lambda_function" "lead_handler" {
 
   environment {
     variables = {
-      TABLE_NAME = aws_dynamodb_table.leads.name
+      TABLE_NAME   = aws_dynamodb_table.leads.name
+      NOTIFY_EMAIL = var.notification_email
+      FROM_EMAIL   = var.notification_email
     }
   }
 

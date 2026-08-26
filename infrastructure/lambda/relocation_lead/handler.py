@@ -8,9 +8,13 @@ import boto3
 
 
 TABLE_NAME = os.environ["TABLE_NAME"]
+NOTIFY_EMAIL = os.environ["NOTIFY_EMAIL"]
+FROM_EMAIL = os.environ.get("FROM_EMAIL", NOTIFY_EMAIL)
 
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table(TABLE_NAME)
+
+ses = boto3.client("sesv2")
 
 EMAIL_RE = re.compile(
     r"^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@"
@@ -41,6 +45,67 @@ def clean(value, max_length=500):
         return ""
 
     return str(value).strip()[:max_length]
+
+
+def send_notification(lead):
+    current_location = ", ".join(
+        part for part in [
+            lead.get("current_city"),
+            lead.get("current_state")
+        ]
+        if part
+    )
+
+    destination = ", ".join(
+        part for part in [
+            lead.get("destination_city"),
+            lead.get("destination_state")
+        ]
+        if part
+    )
+
+    body = f"""A new relocation lead was received.
+
+Name: {lead.get("first_name", "")} {lead.get("last_name", "")}
+Email: {lead.get("email", "")}
+Phone: {lead.get("phone", "")}
+
+Current location: {current_location}
+Destination: {destination}
+
+Relocation need: {lead.get("relocation_type", "")}
+Timeframe: {lead.get("timeframe", "")}
+Price range: {lead.get("price_range", "")}
+Existing agent: {lead.get("has_agent", "")}
+
+Source: {lead.get("source", "")}
+Lead ID: {lead.get("lead_id", "")}
+Created: {lead.get("created_at", "")}
+
+Notes:
+{lead.get("notes", "")}
+"""
+
+    ses.send_email(
+        FromEmailAddress=FROM_EMAIL,
+        Destination={
+            "ToAddresses": [
+                NOTIFY_EMAIL
+            ]
+        },
+        Content={
+            "Simple": {
+                "Subject": {
+                    "Data": "New AJTayfel.com relocation lead"
+                },
+                "Body": {
+                    "Text": {
+                        "Data": body
+                    }
+                }
+            }
+        }
+    )
 
 
 def lambda_handler(event, context):
@@ -161,6 +226,13 @@ def lambda_handler(event, context):
     except Exception:
         print("Failed to store relocation lead.")
         raise
+
+    try:
+        send_notification(lead)
+    except Exception:
+        # Lead storage is the primary operation. A notification problem
+        # must not cause an otherwise valid lead submission to fail.
+        print("Lead stored, but SES notification failed.")
 
     return response(201, {
         "success": True,
