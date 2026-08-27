@@ -1,62 +1,147 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import RelocationHero from "../../components/relocation/RelocationHero.astro";
 import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.astro";
+import { site } from "../../config/site";
+
+const phoneHref = site.contact.phone.replace(/[^\d+]/g, "");
+
+const pageSchema = [
+  {
+    "@type": "WebPage",
+    "@id": "https://ajtayfel.com/relocation/chicago-to-southwest-florida/#webpage",
+    url: "https://ajtayfel.com/relocation/chicago-to-southwest-florida/",
+    name: "Moving From Chicago to Southwest Florida",
+    description:
+      "A homeowner-focused relocation hub for coordinating an Illinois home sale with a move to Southwest Florida.",
+    about: {
+      "@id": "https://ajtayfel.com/#aj-tayfel"
+    }
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://ajtayfel.com/"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Relocation",
+        item: "https://ajtayfel.com/relocation/"
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Chicago to Southwest Florida",
+        item: "https://ajtayfel.com/relocation/chicago-to-southwest-florida/"
+      }
+    ]
+  }
+];
 ---
 
 <BaseLayout
   title="Moving From Chicago to Southwest Florida | AJ Tayfel"
   description="A homeowner-focused guide to selling in Illinois and planning a move to Fort Myers, Cape Coral, Naples, Estero, Bonita Springs, and Southwest Florida."
+  schema={pageSchema}
 >
-  <RelocationHero
-    eyebrow="Chicago → Southwest Florida"
-    title="Selling in Illinois and Moving to Southwest Florida?"
-    description="Plan the Illinois sale and Florida purchase as one coordinated move — with help on the Illinois side and an introduction to an appropriate Florida real estate professional."
-  />
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Illinois → Southwest Florida</p>
 
-  <section id="how-it-works" class="planning-section">
+        <h1>
+          Selling in Illinois.<br />
+          Moving to Southwest Florida.
+        </h1>
+
+        <p class="hero-lede">
+          Plan your Illinois home sale and Florida move as one coordinated
+          transition — with local representation here and an introduction to
+          an appropriately licensed real estate professional at your
+          destination.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button-premium primary" href="#relocation-form-heading">
+            Start My Relocation Plan
+          </a>
+
+          <a class="text-link" href="#destinations">
+            Explore Southwest Florida
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <p class="hero-disclosure">
+          Illinois real estate services provided by AJ Tayfel. Florida
+          representation, when needed, is provided by appropriately licensed
+          Florida real estate professionals.
+        </p>
+      </div>
+
+      <aside class="hero-index" aria-label="Southwest Florida destinations">
+        <p class="index-label">Southwest Florida</p>
+
+        <div class="index-destinations">
+          <span>Fort Myers</span>
+          <span>Cape Coral</span>
+          <span>Naples</span>
+          <span>Bonita Springs</span>
+          <span>Estero</span>
+        </div>
+
+        <div class="index-footer">
+          <span>From Chicagoland</span>
+          <span>To the Gulf Coast</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="process-section">
     <div class="container">
-      <p class="eyebrow">Relocation Planning</p>
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">A Coordinated Approach</p>
+          <h2>One move. Two markets. One plan.</h2>
+        </div>
 
-      <h2 class="section-title">
-        One move. Two real estate markets.
-      </h2>
+        <p>
+          An interstate move becomes easier to manage when the Illinois sale
+          and Florida purchase are planned around the same timeline instead
+          of treated as unrelated transactions.
+        </p>
+      </div>
 
-      <p class="section-intro">
-        Moving from the Chicago area to Southwest Florida often means
-        coordinating the sale of one home with the purchase of another.
-        The goal is to make those timelines work together instead of
-        treating them as two unrelated transactions.
-      </p>
-
-      <div class="grid-3">
-        <article class="card">
+      <div class="process-grid">
+        <article class="process-step">
           <span class="step-number">01</span>
-          <h3>Plan the Illinois sale</h3>
+          <h3>Prepare the Illinois side</h3>
           <p>
-            Review your likely selling timeline, property preparation,
-            listing strategy, and how the Illinois closing fits into your
-            overall relocation plan.
+            Review your home, preparation needs, listing strategy, likely
+            timing, and what the sale needs to accomplish before the move.
           </p>
         </article>
 
-        <article class="card">
+        <article class="process-step">
           <span class="step-number">02</span>
           <h3>Define the Florida move</h3>
           <p>
-            Narrow down your destination, timing, housing needs, purchase
-            range, and the questions you want answered before committing
-            to a particular Southwest Florida area.
+            Clarify the communities, property type, timing, budget, and
+            ownership questions that matter at your destination.
           </p>
         </article>
 
-        <article class="card">
+        <article class="process-step">
           <span class="step-number">03</span>
-          <h3>Coordinate both sides</h3>
+          <h3>Connect both sides</h3>
           <p>
-            When appropriate, I can connect you with a qualified Florida
-            real estate professional and help keep communication between
-            the Illinois and destination sides organized.
+            When destination representation is needed, I can coordinate an
+            introduction so both sides understand the larger relocation plan.
           </p>
         </article>
       </div>
@@ -65,287 +150,302 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
 
   <section id="destinations" class="destinations-section">
     <div class="container">
-      <p class="eyebrow">Where Are You Headed?</p>
+      <div class="section-heading">
+        <p class="eyebrow">Explore Southwest Florida</p>
 
-      <h2 class="section-title">
-        Southwest Florida areas Chicago homeowners often consider
-      </h2>
+        <h2>
+          Start narrowing the place that feels right.
+        </h2>
 
-      <p class="section-intro">
-        You do not need to know exactly where you want to live before
-        starting the relocation process. A useful first step is identifying
-        which communities deserve a closer look based on your lifestyle,
-        housing preferences, and budget.
-      </p>
+        <p>
+          You do not need to know exactly where you want to live before
+          starting. Begin with the places that deserve a closer look, then
+          refine the search around your lifestyle, property preferences,
+          budget, and ownership priorities.
+        </p>
+      </div>
 
-      <div class="destination-grid">
-        <article class="destination-card">
-          <h3>
-            <a href="/relocation/chicago-to-fort-myers/">
-              Fort Myers
-            </a>
-          </h3>
-          <p>
-            A central Southwest Florida option with a broad mix of
-            neighborhoods, housing types, and access to surrounding
-            Gulf Coast communities.
-          </p>
-        </article>
+      <div class="destination-features">
+        <a
+          class="destination-feature"
+          href="/relocation/chicago-to-fort-myers/"
+        >
+          <div class="destination-top">
+            <span class="destination-number">01</span>
+            <span class="destination-arrow" aria-hidden="true">↗</span>
+          </div>
 
-        <article class="destination-card">
-          <h3>Cape Coral</h3>
-          <p>
-            Often considered by buyers looking for residential options
-            across a large waterfront-oriented community west of Fort Myers.
-          </p>
-        </article>
+          <div>
+            <p class="destination-type">Relocation Guide</p>
+            <h3>Fort Myers</h3>
+            <p>
+              A central Southwest Florida option with a broad mix of housing
+              types and access to surrounding Gulf Coast communities.
+            </p>
+          </div>
 
-        <article class="destination-card">
-          <h3>Naples</h3>
-          <p>
-            A major destination in Collier County with options ranging from
-            established neighborhoods to condominium and luxury communities.
-          </p>
-        </article>
+          <span class="destination-link">Explore Fort Myers</span>
+        </a>
 
-        <article class="destination-card">
-          <h3>Bonita Springs</h3>
-          <p>
-            Positioned between Fort Myers and Naples, making it worth
-            comparing for buyers who want access to both Lee and Collier
-            County destinations.
-          </p>
-        </article>
+        <a
+          class="destination-feature"
+          href="/relocation/chicago-to-cape-coral/"
+        >
+          <div class="destination-top">
+            <span class="destination-number">02</span>
+            <span class="destination-arrow" aria-hidden="true">↗</span>
+          </div>
 
-        <article class="destination-card">
-          <h3>Estero</h3>
-          <p>
-            A community between Fort Myers and Naples that may appeal to
-            buyers comparing newer developments, planned communities, and
-            convenient regional access.
-          </p>
-        </article>
+          <div>
+            <p class="destination-type">Relocation Guide</p>
+            <h3>Cape Coral</h3>
+            <p>
+              A large waterfront-oriented community where flood, insurance,
+              utilities, and property-specific due diligence deserve careful
+              attention.
+            </p>
+          </div>
 
-        <article class="destination-card">
-          <h3>Still deciding?</h3>
-          <p>
-            That is completely fine. Your destination can be narrowed down
-            after your timing, housing priorities, and overall move plan are
-            clearer.
-          </p>
-        </article>
+          <span class="destination-link">Explore Cape Coral</span>
+        </a>
+      </div>
+
+      <div class="destination-index">
+        <div>
+          <span>03</span>
+          <strong>Naples</strong>
+          <p>Collier County living, condominiums, communities, and luxury options.</p>
+        </div>
+
+        <div>
+          <span>04</span>
+          <strong>Bonita Springs</strong>
+          <p>A location between Fort Myers and Naples with access to both regions.</p>
+        </div>
+
+        <div>
+          <span>05</span>
+          <strong>Estero</strong>
+          <p>Planned communities, newer development, and regional convenience.</p>
+        </div>
+
+        <div>
+          <span>06</span>
+          <strong>Still deciding?</strong>
+          <p>That is completely fine. Destination planning can begin before the city is final.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="agent-section">
+    <div class="container agent-grid">
+      <div class="agent-image-wrap">
+        <img
+          src="/images/aj-headshot.png"
+          alt="AJ Tayfel, REALTOR®"
+          class="agent-image"
+          width="900"
+          height="1125"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="agent-copy">
+        <p class="eyebrow">Your Illinois-Side Point of Coordination</p>
+
+        <h2>
+          Meet AJ.
+        </h2>
+
+        <p class="agent-lede">
+          Relocation works better when somebody keeps the entire move in view.
+        </p>
+
+        <p>
+          I help homeowners plan and handle the Illinois real estate side of
+          the transition — including preparation, listing strategy, timing,
+          and communication around the sale.
+        </p>
+
+        <p>
+          When you need representation in Florida, I can help identify and
+          introduce you to an appropriately licensed real estate professional
+          based on the market and type of help you need.
+        </p>
+
+        <div class="agent-services">
+          <div>
+            <span>01</span>
+            <strong>Illinois home-sale strategy</strong>
+          </div>
+
+          <div>
+            <span>02</span>
+            <strong>Relocation timeline coordination</strong>
+          </div>
+
+          <div>
+            <span>03</span>
+            <strong>Destination-agent introduction</strong>
+          </div>
+        </div>
+
+        <div class="agent-actions">
+          <a class="button-premium dark" href="#relocation-form-heading">
+            Plan My Move
+          </a>
+
+          <a class="direct-link" href={`tel:${phoneHref}`}>
+            Call {site.contact.phone}
+          </a>
+
+          <a class="direct-link" href={`mailto:${site.contact.email}`}>
+            Email AJ
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guides-section">
+    <div class="container">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">Relocation Planning Guides</p>
+          <h2>Make the big decisions before they become urgent.</h2>
+        </div>
+
+        <p>
+          These guides focus on the homeowner questions that often determine
+          how an Illinois-to-Florida move should be sequenced.
+        </p>
+      </div>
+
+      <div class="guide-grid">
+        <a
+          class="guide-card"
+          href="/relocation/selling-illinois-home-before-moving-to-florida/"
+        >
+          <span class="guide-number">01</span>
+
+          <div>
+            <p class="guide-label">Home Sale Planning</p>
+
+            <h3>
+              Selling Your Illinois Home Before Moving to Florida
+            </h3>
+
+            <p>
+              Think through preparation, listing timing, closing coordination,
+              and how the Illinois sale fits into the move.
+            </p>
+          </div>
+
+          <span class="guide-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a
+          class="guide-card"
+          href="/relocation/should-you-sell-illinois-house-before-buying-in-florida/"
+        >
+          <span class="guide-number">02</span>
+
+          <div>
+            <p class="guide-label">Transaction Sequence</p>
+
+            <h3>
+              Should You Sell Your Illinois House Before Buying in Florida?
+            </h3>
+
+            <p>
+              Compare selling first, buying first, and coordinating both
+              transactions during an interstate move.
+            </p>
+          </div>
+
+          <span class="guide-arrow" aria-hidden="true">→</span>
+        </a>
       </div>
     </div>
   </section>
 
   <section class="questions-section">
-    <div class="container narrow">
-      <p class="eyebrow">Before You List</p>
+    <div class="container questions-grid">
+      <div class="questions-heading">
+        <p class="eyebrow">Before You List</p>
 
-      <h2 class="section-title">
-        Questions worth answering early
-      </h2>
+        <h2>
+          A few questions can shape the entire move.
+        </h2>
 
+        <p>
+          There is no universal sequence. The right plan depends on your
+          property, financing, timing, flexibility, and destination.
+        </p>
+      </div>
+
+      <div class="decision-list">
+        <div class="decision">
+          <span>01</span>
+          <p>
+            Do you need proceeds from the Illinois sale before purchasing
+            in Florida?
+          </p>
+        </div>
+
+        <div class="decision">
+          <span>02</span>
+          <p>
+            Would you rather sell first, buy first, or coordinate both
+            transactions closely together?
+          </p>
+        </div>
+
+        <div class="decision">
+          <span>03</span>
+          <p>
+            How much flexibility do you have if one closing happens before
+            the other?
+          </p>
+        </div>
+
+        <div class="decision">
+          <span>04</span>
+          <p>
+            Have you researched Florida-specific ownership questions such as
+            insurance, associations, and property-specific flood considerations?
+          </p>
+        </div>
+
+        <div class="decision">
+          <span>05</span>
+          <p>
+            Are you already represented by a real estate professional in
+            either market?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container planning-note">
       <p>
-        The best sequence depends on your situation. Before putting your
-        Illinois home on the market, it helps to think through a few
-        practical questions:
-      </p>
-
-      <ul class="question-list">
-        <li>
-          Do you need proceeds from the Illinois sale before purchasing
-          in Florida?
-        </li>
-        <li>
-          Would you prefer to buy first, sell first, or coordinate both
-          transactions closely together?
-        </li>
-        <li>
-          How much flexibility do you have if one closing happens before
-          the other?
-        </li>
-        <li>
-          Are you moving full-time, seasonally, or still comparing those
-          options?
-        </li>
-        <li>
-          Have you considered Florida-specific ownership costs and due
-          diligence such as insurance, association fees, and property-specific
-          flood considerations?
-        </li>
-        <li>
-          Are you already represented by an agent in either Illinois
-          or Florida?
-        </li>
-      </ul>
-
-      <p class="supporting-note">
-        These questions are planning prompts, not financial, legal, tax,
+        These are planning prompts only and are not financial, legal, tax,
         insurance, or lending advice. Appropriate professionals should be
         consulted for those areas.
       </p>
     </div>
   </section>
 
-  <section class="coordination-section">
-    <div class="container coordination-grid">
-      <div>
-        <p class="eyebrow">How I Can Help</p>
-
-        <h2 class="section-title">
-          Keep the Illinois and Florida sides connected
-        </h2>
-
-        <p>
-          If you own property in Illinois, I can help you think through the
-          Illinois real estate side of the move and the timing around your
-          sale.
-        </p>
-
-        <p>
-          If you need representation in Florida, I can help identify and
-          introduce you to an appropriately licensed real estate professional
-          based on your destination and needs.
-        </p>
-
-        <p>
-          The objective is simple: fewer disconnected conversations and a
-          clearer path from your current home to your next one.
-        </p>
-      </div>
-
-      <aside class="coordination-card">
-        <h3>A typical relocation plan may include:</h3>
-
-        <ul>
-          <li>Illinois home-sale planning</li>
-          <li>Relocation timeline coordination</li>
-          <li>Destination and housing-needs discussion</li>
-          <li>Introduction to a Florida real estate professional</li>
-          <li>Communication between both sides of the move</li>
-        </ul>
-
-        <a href="#relocation-form-heading" class="button primary">
-          Start My Relocation Plan
-        </a>
-      </aside>
-    </div>
-  </section>
-
-  <section class="resources-section">
-    <div class="container">
-      <p class="eyebrow">Relocation Resources</p>
-
-      <h2 class="section-title">
-        Planning your Illinois-to-Florida move
-      </h2>
-
-      <p class="section-intro">
-        These homeowner-focused guides cover the decisions that often come
-        up when selling in Illinois and preparing for a move to Florida.
-      </p>
-
-      <div class="resource-grid">
-        <article class="resource-card">
-          <p class="resource-label">Home Sale Planning</p>
-
-          <h3>
-            <a
-              href="/relocation/selling-illinois-home-before-moving-to-florida/"
-            >
-              Selling Your Illinois Home Before Moving to Florida
-            </a>
-          </h3>
-
-          <p>
-            Learn how to think through listing preparation, transaction
-            timing, closing coordination, and planning for the next home.
-          </p>
-
-          <a
-            class="resource-link"
-            href="/relocation/selling-illinois-home-before-moving-to-florida/"
-          >
-            Read the guide →
-          </a>
-        </article>
-        <article class="resource-card">
-          <p class="resource-label">Buy or Sell First?</p>
-
-          <h3>
-            <a
-              href="/relocation/should-you-sell-illinois-house-before-buying-in-florida/"
-            >
-              Should You Sell Your Illinois House Before Buying in Florida?
-            </a>
-          </h3>
-
-          <p>
-            Compare selling first, buying first, and coordinating both
-            transactions during an Illinois-to-Florida move.
-          </p>
-
-          <a
-            class="resource-link"
-            href="/relocation/should-you-sell-illinois-house-before-buying-in-florida/"
-          >
-            Read the guide →
-          </a>
-        </article>
-        <article class="resource-card">
-          <p class="resource-label">Destination Guide</p>
-
-          <h3>
-            <a href="/relocation/chicago-to-fort-myers/">
-              Moving From Chicago to Fort Myers, Florida
-            </a>
-          </h3>
-
-          <p>
-            A homeowner-focused guide to coordinating an Illinois home sale
-            with a move and potential purchase in Fort Myers.
-          </p>
-
-          <a
-            class="resource-link"
-            href="/relocation/chicago-to-fort-myers/"
-          >
-            Read the guide →
-          </a>
-        </article>
-        <article class="resource-card">
-          <p class="resource-label">Destination Guide</p>
-
-          <h3>
-            <a href="/relocation/chicago-to-cape-coral/">
-              Moving From Chicago to Cape Coral, Florida
-            </a>
-          </h3>
-
-          <p>
-            A homeowner-focused guide covering the Illinois sale plus Cape
-            Coral flood, insurance, utility, and waterfront due diligence.
-          </p>
-
-          <a
-            class="resource-link"
-            href="/relocation/chicago-to-cape-coral/"
-          >
-            Read the guide →
-          </a>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section class="faq-section">
-    <div class="container narrow">
-      <p class="eyebrow">Frequently Asked Questions</p>
+    <div class="container faq-grid">
+      <div class="faq-heading">
+        <p class="eyebrow">Frequently Asked Questions</p>
 
-      <h2 class="section-title">
-        Chicago to Southwest Florida relocation questions
-      </h2>
+        <h2>
+          Chicago to Southwest Florida relocation.
+        </h2>
+      </div>
 
       <div class="faq-list">
         <details>
@@ -357,8 +457,7 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
             There is no single sequence that works for everyone. Your
             available equity, financing, desired timing, housing flexibility,
             and comfort with carrying two properties can all affect the
-            decision. The important part is planning the two transactions
-            together early.
+            decision. The important part is planning both transactions early.
           </p>
         </details>
 
@@ -368,8 +467,8 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
           </summary>
 
           <p>
-            My role is on the Illinois side of the move. When Florida real
-            estate representation is needed, I can help connect you with an
+            My role is on the Illinois side of the move. When Florida
+            representation is needed, I can help connect you with an
             appropriately licensed Florida real estate professional.
           </p>
         </details>
@@ -381,7 +480,7 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
 
           <p>
             You can still begin planning. Your housing priorities, budget,
-            timing, preferred lifestyle, and other requirements can help
+            timing, lifestyle preferences, and ownership requirements can help
             determine which communities deserve further investigation.
           </p>
         </details>
@@ -392,8 +491,8 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
           </summary>
 
           <p>
-            Earlier planning generally gives you more flexibility. Even if
-            your move is six to twelve months away, it can be useful to start
+            Earlier planning generally provides more flexibility. Even if the
+            move is six to twelve months away, it can be useful to begin
             discussing the Illinois property, destination requirements, and
             possible transaction sequence.
           </p>
@@ -407,15 +506,36 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
           <p>
             That is fine. The relocation form lets you indicate whether you
             already have representation so the Illinois side can be planned
-            appropriately without duplicating an existing relationship.
+            without duplicating an existing relationship.
           </p>
         </details>
+
+        <p class="license-note">
+          Florida real estate services are provided by appropriately licensed
+          Florida real estate professionals when applicable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing-cta">
+    <div class="container closing-inner">
+      <div>
+        <p class="eyebrow light">Ready When You Are</p>
+
+        <h2>
+          Start with the move you are actually trying to make.
+        </h2>
+
+        <p>
+          Tell me about your Illinois home, your timing, and where you are
+          considering going. We can begin from there.
+        </p>
       </div>
 
-      <p class="license-note">
-        Florida real estate services are provided by appropriately licensed
-        Florida real estate professionals when applicable.
-      </p>
+      <a class="button-premium light-button" href="#relocation-form-heading">
+        Start My Relocation Plan
+      </a>
     </div>
   </section>
 
@@ -423,196 +543,689 @@ import RelocationLeadForm from "../../components/relocation/RelocationLeadForm.a
 </BaseLayout>
 
 <style>
-  .eyebrow {
-    margin-bottom: .75rem;
-    color: var(--secondary);
-    font-size: .85rem;
-    font-weight: 700;
-    letter-spacing: .1em;
-    text-transform: uppercase;
+  :global(html) {
+    scroll-behavior: smooth;
   }
 
-  .step-number {
-    display: inline-block;
-    margin-bottom: 1rem;
-    color: var(--secondary);
-    font-size: .85rem;
-    font-weight: 800;
-    letter-spacing: .12em;
-  }
-
-  .card h3,
-  .destination-card h3,
-  .coordination-card h3 {
-    margin-bottom: .75rem;
-    color: var(--primary);
-    font-size: 1.25rem;
-  }
-
-  .card p,
-  .destination-card p,
-  .coordination-section p,
-  .questions-section p {
-    color: var(--text-light);
-  }
-
+  .hero,
+  .process-section,
   .destinations-section,
-  .coordination-section {
-    background: var(--surface);
+  .agent-section,
+  .guides-section,
+  .questions-section,
+  .faq-section,
+  .closing-cta {
+    --ink: #102c3c;
+    --ink-deep: #092432;
+    --paper: #fbfaf6;
+    --warm: #f2eee6;
+    --line: rgba(16, 44, 60, .16);
+    --gold: #a88b55;
   }
 
-  .destination-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem;
-  }
-
-  .destination-card h3 a {
-    color: inherit;
-    text-decoration: underline;
-    text-underline-offset: .18em;
-  }
-
-  .destination-card {
-    padding: 1.75rem;
-    border: 1px solid rgba(11, 60, 93, .12);
-    border-radius: var(--radius);
-    background: var(--background);
-  }
-
-  .narrow {
-    max-width: 850px;
-  }
-
-  .question-list {
-    margin: 2rem 0;
-    padding-left: 1.25rem;
-  }
-
-  .question-list li {
-    margin-bottom: 1rem;
-    padding-left: .35rem;
-  }
-
-  .supporting-note,
-  .license-note {
-    margin-top: 2rem;
-    padding: 1.25rem;
-    border-left: 4px solid var(--secondary);
-    background: rgba(50, 140, 193, .07);
-    color: var(--text-light);
-    font-size: .92rem;
-  }
-
-  .coordination-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
-    gap: clamp(2rem, 6vw, 5rem);
-    align-items: start;
-  }
-
-  .coordination-section p {
-    margin-bottom: 1.25rem;
-  }
-
-  .coordination-card {
-    padding: 2rem;
-    border-radius: var(--radius);
-    background: var(--primary);
-    color: white;
-    box-shadow: var(--shadow);
-  }
-
-  .coordination-card h3 {
-    color: white;
-  }
-
-  .coordination-card ul {
-    margin: 1.25rem 0 2rem;
-    padding-left: 1.2rem;
-  }
-
-  .coordination-card li {
-    margin-bottom: .75rem;
-  }
-
-  .resources-section {
-    background: var(--background);
-  }
-
-  .resource-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .resource-card {
-    padding: 2rem;
-    border: 1px solid rgba(11, 60, 93, .12);
-    border-radius: var(--radius);
-    background: var(--surface);
-  }
-
-  .resource-label {
-    margin-bottom: .65rem;
-    color: var(--secondary);
-    font-size: .8rem;
+  .eyebrow {
+    margin: 0 0 1rem;
+    color: var(--gold);
+    font-size: .72rem;
     font-weight: 800;
-    letter-spacing: .08em;
+    letter-spacing: .18em;
     text-transform: uppercase;
   }
 
-  .resource-card h3 {
-    margin-bottom: .8rem;
-    color: var(--primary);
-    font-size: 1.35rem;
+  .hero {
+    min-height: 720px;
+    display: flex;
+    align-items: center;
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: var(--paper);
   }
 
-  .resource-card h3 a,
-  .resource-link {
-    color: inherit;
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(330px, .72fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: center;
+  }
+
+  .hero-copy h1,
+  .section-heading h2,
+  .agent-copy h2,
+  .questions-heading h2,
+  .faq-heading h2,
+  .closing-cta h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .hero-copy h1 {
+    max-width: 780px;
+    margin: 0;
+    font-size: clamp(3.6rem, 7.5vw, 7rem);
+    line-height: .96;
+    letter-spacing: -.045em;
+  }
+
+  .hero-lede {
+    max-width: 720px;
+    margin: 2rem 0 0;
+    color: #4d5d65;
+    font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+    align-items: center;
+    margin-top: 2.5rem;
+  }
+
+  .button-premium {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: .9rem 1.6rem;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      transform .2s ease,
+      background .2s ease,
+      border-color .2s ease;
+  }
+
+  .button-premium:hover,
+  .button-premium:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .button-premium.primary,
+  .button-premium.dark {
+    background: var(--ink-deep);
+    color: #fff;
+  }
+
+  .text-link,
+  .direct-link {
+    color: var(--ink);
+    font-weight: 700;
     text-decoration: underline;
-    text-underline-offset: .18em;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .25em;
   }
 
-  .resource-card > p:not(.resource-label) {
-    color: var(--text-light);
+  .text-link span {
+    margin-left: .45rem;
+  }
+
+  .hero-disclosure {
+    max-width: 690px;
+    margin-top: 2rem;
+    color: #78838a;
+    font-size: .78rem;
+    line-height: 1.6;
+  }
+
+  .hero-index {
+    min-height: 540px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(2rem, 4vw, 3.5rem);
+    background: var(--ink-deep);
+    color: white;
+  }
+
+  .index-label,
+  .index-footer {
+    color: rgba(255,255,255,.55);
+    font-size: .7rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+
+  .index-destinations {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .index-destinations span {
+    padding: .8rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.7rem, 3vw, 2.7rem);
+  }
+
+  .index-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .process-section {
+    padding: clamp(5rem, 10vw, 8rem) 0;
+    background: #fff;
+  }
+
+  .section-heading {
+    max-width: 860px;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .section-heading h2,
+  .agent-copy h2,
+  .questions-heading h2,
+  .faq-heading h2,
+  .closing-cta h2 {
+    margin: 0;
+    font-size: clamp(2.7rem, 5vw, 4.7rem);
+    line-height: 1.03;
+    letter-spacing: -.03em;
+  }
+
+  .section-heading > p:not(.eyebrow),
+  .split-heading > p {
+    color: #647078;
+    line-height: 1.8;
+  }
+
+  .split-heading {
+    max-width: none;
+    display: grid;
+    grid-template-columns: 1.1fr .75fr;
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: end;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  .process-step {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .step-number,
+  .destination-number,
+  .guide-number,
+  .decision span,
+  .agent-services span {
+    color: var(--gold);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+  }
+
+  .process-step h3 {
+    margin: 1.3rem 0 .8rem;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.65rem;
+    font-weight: 400;
+  }
+
+  .process-step p {
+    color: #647078;
+    line-height: 1.75;
+  }
+
+  .destinations-section {
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: var(--warm);
+  }
+
+  .destination-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(16,44,60,.18);
+    border: 1px solid rgba(16,44,60,.18);
+  }
+
+  .destination-feature {
+    min-height: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(2rem, 4vw, 3rem);
+    background: var(--paper);
+    color: inherit;
+    text-decoration: none;
+    transition: background .25s ease;
+  }
+
+  .destination-feature:hover,
+  .destination-feature:focus-visible {
+    background: #fff;
+  }
+
+  .destination-top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .destination-arrow {
+    color: var(--ink);
+    font-size: 1.5rem;
+    transition: transform .2s ease;
+  }
+
+  .destination-feature:hover .destination-arrow {
+    transform: translate(3px, -3px);
+  }
+
+  .destination-type,
+  .guide-label {
+    margin-bottom: .65rem;
+    color: var(--gold);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+
+  .destination-feature h3 {
+    margin: 0 0 1rem;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.7rem, 5vw, 4.5rem);
+    font-weight: 400;
+  }
+
+  .destination-feature p:not(.destination-type) {
+    max-width: 480px;
+    color: #647078;
+    line-height: 1.75;
+  }
+
+  .destination-link {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: .25em;
+  }
+
+  .destination-index {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 4rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .destination-index > div {
+    padding: 1.5rem 1.5rem 0 0;
+  }
+
+  .destination-index > div + div {
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--line);
+  }
+
+  .destination-index span {
+    display: block;
+    margin-bottom: .75rem;
+    color: var(--gold);
+    font-size: .7rem;
+    font-weight: 800;
+  }
+
+  .destination-index strong {
+    display: block;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .destination-index p {
+    margin-top: .65rem;
+    color: #647078;
+    font-size: .88rem;
+    line-height: 1.6;
+  }
+
+  .agent-section {
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: var(--ink-deep);
+    color: white;
+  }
+
+  .agent-grid {
+    display: grid;
+    grid-template-columns: 410px minmax(0, 1fr);
+    gap: clamp(3rem, 7vw, 6rem);
+    align-items: center;
+  }
+
+  .agent-image-wrap {
+    width: 360px;
+    justify-self: center;
+    padding: 10px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.16);
+  }
+
+  .agent-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .agent-copy .eyebrow {
+    color: #c7ad79;
+  }
+
+  .agent-copy h2 {
+    color: white;
+  }
+
+  .agent-lede {
+    max-width: 640px;
+    margin: 1.7rem 0 1rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.45rem;
+    line-height: 1.55;
+  }
+
+  .agent-copy > p:not(.eyebrow):not(.agent-lede) {
+    max-width: 680px;
+    margin-top: 1rem;
+    color: rgba(255,255,255,.72);
+    line-height: 1.8;
+  }
+
+  .agent-services {
+    margin-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,.18);
+  }
+
+  .agent-services > div {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.18);
+  }
+
+  .agent-services strong {
+    font-weight: 500;
+  }
+
+  .agent-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .agent-actions .button-premium {
+    background: #fff;
+    color: var(--ink-deep);
+  }
+
+  .agent-actions .direct-link {
+    color: white;
+  }
+
+  .guides-section {
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: var(--paper);
+  }
+
+  .guide-grid {
+    border-top: 1px solid var(--line);
+  }
+
+  .guide-card {
+    display: grid;
+    grid-template-columns: 70px 1fr 50px;
+    gap: clamp(1rem, 4vw, 3rem);
+    align-items: center;
+    padding: clamp(2rem, 5vw, 3.5rem) 0;
+    border-bottom: 1px solid var(--line);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .guide-card h3 {
+    max-width: 850px;
+    margin: 0 0 .75rem;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.12;
+  }
+
+  .guide-card p:not(.guide-label) {
+    max-width: 700px;
+    color: #647078;
     line-height: 1.7;
   }
 
-  .resource-link {
-    display: inline-block;
-    margin-top: .75rem;
-    font-weight: 700;
+  .guide-arrow {
+    color: var(--ink);
+    font-size: 1.7rem;
+    transition: transform .2s ease;
+  }
+
+  .guide-card:hover .guide-arrow {
+    transform: translateX(5px);
+  }
+
+  .questions-section {
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: #fff;
+  }
+
+  .questions-grid {
+    display: grid;
+    grid-template-columns: .75fr 1.25fr;
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  .questions-heading {
+    position: sticky;
+    top: 7rem;
+    align-self: start;
+  }
+
+  .questions-heading > p:not(.eyebrow) {
+    margin-top: 1.5rem;
+    color: #647078;
+    line-height: 1.8;
+  }
+
+  .decision-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .decision {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    gap: 1rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .decision p {
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.25rem, 2.3vw, 1.8rem);
+    line-height: 1.4;
+  }
+
+  .planning-note {
+    margin-top: 3rem;
+  }
+
+  .planning-note p,
+  .license-note {
+    max-width: 760px;
+    color: #7a8388;
+    font-size: .83rem;
+    line-height: 1.7;
+  }
+
+  .faq-section {
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: var(--warm);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: .75fr 1.25fr;
+    gap: clamp(3rem, 8vw, 8rem);
   }
 
   .faq-list {
-    margin-top: 2rem;
+    border-top: 1px solid var(--line);
   }
 
   .faq-list details {
-    padding: 1.25rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, .12);
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .faq-list summary {
     cursor: pointer;
-    color: var(--primary);
-    font-size: 1.05rem;
-    font-weight: 700;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
   }
 
   .faq-list details p {
+    max-width: 720px;
     padding-top: 1rem;
-    color: var(--text-light);
+    color: #647078;
+    line-height: 1.75;
   }
 
-  @media (max-width: 850px) {
-    .destination-grid,
-    .coordination-grid,
-    .resource-grid {
+  .license-note {
+    margin-top: 2rem;
+  }
+
+  .closing-cta {
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    background: var(--ink-deep);
+    color: white;
+  }
+
+  .closing-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .closing-cta .eyebrow {
+    color: #c7ad79;
+  }
+
+  .closing-cta h2 {
+    max-width: 780px;
+    color: white;
+  }
+
+  .closing-cta p:not(.eyebrow) {
+    max-width: 650px;
+    margin-top: 1.2rem;
+    color: rgba(255,255,255,.7);
+    line-height: 1.75;
+  }
+
+  .light-button {
+    flex: 0 0 auto;
+    border-color: rgba(255,255,255,.45);
+    background: white;
+    color: var(--ink-deep);
+  }
+
+  @media (max-width: 950px) {
+    .hero-grid,
+    .agent-grid,
+    .questions-grid,
+    .faq-grid,
+    .split-heading {
       grid-template-columns: 1fr;
+    }
+
+    .hero-index {
+      min-height: 420px;
+    }
+
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .destination-index {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .destination-index > div {
+      padding: 1.5rem 1rem 1.5rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .destination-index > div + div {
+      padding-left: 1rem;
+    }
+
+    .questions-heading {
+      position: static;
+    }
+
+    .closing-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .hero {
+      min-height: auto;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3rem, 15vw, 4.6rem);
+    }
+
+    .destination-features,
+    .destination-index {
+      grid-template-columns: 1fr;
+    }
+
+    .destination-feature {
+      min-height: 390px;
+    }
+
+    .destination-index > div,
+    .destination-index > div + div {
+      padding: 1.5rem 0;
+      border-left: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guide-card {
+      grid-template-columns: 40px 1fr;
+    }
+
+    .guide-arrow {
+      display: none;
+    }
+
+    .agent-actions {
+      align-items: flex-start;
+      flex-direction: column;
     }
   }
 </style>

@@ -337,65 +337,71 @@ const apiUrl = import.meta.env.PUBLIC_RELOCATION_API_URL ?? "";
 
 <style>
   .lead-section {
-    padding: clamp(3.5rem, 7vw, 6rem) 1.25rem;
-    background: #f7f7f7;
+    padding: clamp(5rem, 10vw, 9rem) 1.25rem;
+    background: #f2eee6;
   }
 
   .lead-shell {
     width: min(1120px, 100%);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+    gap: clamp(3rem, 7vw, 6rem);
     align-items: start;
   }
 
   .lead-intro {
     position: sticky;
-    top: 6rem;
+    top: 7rem;
   }
 
   .eyebrow {
-    margin: 0 0 0.75rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    margin: 0 0 1rem;
+    color: #a88b55;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .18em;
     text-transform: uppercase;
   }
 
   .lead-intro h2 {
-    margin: 0 0 1rem;
-    font-size: clamp(2rem, 4vw, 3.25rem);
-    line-height: 1.05;
+    margin: 0 0 1.4rem;
+    color: #102c3c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.7rem, 5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.03;
+    letter-spacing: -.03em;
   }
 
   .lead-intro p {
-    line-height: 1.7;
+    color: #647078;
+    line-height: 1.8;
   }
 
   .lead-note {
-    font-size: 0.95rem;
-    opacity: 0.8;
+    margin-top: 1rem;
+    font-size: .88rem;
   }
 
   .lead-form {
-    padding: clamp(1.5rem, 4vw, 2.5rem);
+    padding: clamp(1.75rem, 4vw, 3rem);
     background: #fff;
-    border: 1px solid #e5e5e5;
-    border-radius: 1rem;
-    box-shadow: 0 1rem 3rem rgb(0 0 0 / 0.06);
+    border: 1px solid rgba(16,44,60,.14);
+    border-radius: 2px;
+    box-shadow: 0 22px 60px rgba(9,36,50,.08);
   }
 
   .form-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
+    gap: 1.35rem;
   }
 
   .field {
     display: flex;
     flex-direction: column;
-    gap: 0.45rem;
+    gap: .5rem;
   }
 
   .field.full {
@@ -403,76 +409,91 @@ const apiUrl = import.meta.env.PUBLIC_RELOCATION_API_URL ?? "";
   }
 
   .field label {
-    font-weight: 700;
-    font-size: 0.92rem;
+    color: #102c3c;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .045em;
   }
 
   .field label span {
+    color: #7b858a;
     font-weight: 400;
-    opacity: 0.7;
   }
 
   .field input,
   .field select,
   .field textarea {
     width: 100%;
-    padding: 0.85rem 0.9rem;
-    border: 1px solid #cfcfcf;
-    border-radius: 0.45rem;
-    background: #fff;
-    color: inherit;
+    min-height: 50px;
+    padding: .85rem .9rem;
+    border: 0;
+    border-bottom: 1px solid rgba(16,44,60,.28);
+    border-radius: 0;
+    background: #fbfaf6;
+    color: #222;
     font: inherit;
+  }
+
+  .field textarea {
+    min-height: 130px;
+    resize: vertical;
   }
 
   .field input:focus,
   .field select:focus,
   .field textarea:focus {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
-  }
-
-  .field textarea {
-    resize: vertical;
+    outline: 1px solid #102c3c;
+    outline-offset: 0;
+    border-bottom-color: #102c3c;
   }
 
   .consent {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
-    margin: 1.5rem 0;
-    line-height: 1.5;
-    font-size: 0.9rem;
+    gap: .75rem;
+    margin: 1.7rem 0;
+    color: #59666d;
+    font-size: .85rem;
+    line-height: 1.6;
   }
 
   .consent input {
-    margin-top: 0.25rem;
+    margin-top: .25rem;
+    accent-color: #102c3c;
   }
 
   .submit-button {
     width: 100%;
-    min-height: 3.1rem;
-    border: 0;
-    border-radius: 0.4rem;
+    min-height: 54px;
+    border: 1px solid #092432;
+    border-radius: 2px;
     cursor: pointer;
-    background: #b31b1b;
+    background: #092432;
     color: #fff;
     font: inherit;
-    font-weight: 700;
+    font-weight: 800;
+    transition:
+      transform .2s ease,
+      background .2s ease;
   }
 
-  .submit-button:hover {
-    filter: brightness(0.94);
+  .submit-button:hover,
+  .submit-button:focus-visible {
+    transform: translateY(-2px);
+    background: #143b4d;
   }
 
   .submit-button:disabled {
     cursor: wait;
-    opacity: 0.65;
+    opacity: .6;
+    transform: none;
   }
 
   .form-status {
     min-height: 1.5rem;
     margin: 1rem 0 0;
-    font-weight: 600;
+    font-size: .9rem;
+    font-weight: 700;
   }
 
   .form-status[data-state="success"] {
@@ -491,7 +512,7 @@ const apiUrl = import.meta.env.PUBLIC_RELOCATION_API_URL ?? "";
     overflow: hidden;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     .lead-shell,
     .form-grid {
       grid-template-columns: 1fr;
