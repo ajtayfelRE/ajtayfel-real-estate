@@ -1,28 +1,721 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/home/Hero.astro";
-import Stats from "../components/home/Stats.astro";
-import MeetAJ from "../components/home/MeetAJ.astro";
-import WhyChooseAJ from "../components/home/WhyChooseAJ.astro";
-import Services from "../components/home/Services.astro";
-import Communities from "../components/home/Communities.astro";
+import { site } from "../config/site";
+
+const phoneHref = site.contact.phone.replace(/[^\d+]/g, "");
 ---
 
 <BaseLayout
   title="AJ Tayfel, REALTOR® | DuPage County & Chicago Western Suburbs"
   description="Real estate guidance for buyers and sellers throughout DuPage County and Chicago's western suburbs with AJ Tayfel, REALTOR®."
 >
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          DuPage County & Chicago's Western Suburbs
+        </p>
 
-  <Hero />
+        <h1>
+          Real estate guidance<br />
+          built around your move.
+        </h1>
 
-  <Stats />
+        <p class="hero-lede">
+          Buying, selling, or planning a move out of Illinois, I help you
+          understand the decisions in front of you and build a clear real
+          estate plan around your timing and goals.
+        </p>
 
-  <MeetAJ />
+        <div class="hero-actions">
+          <a class="button-premium primary" href="/contact/">
+            Start a Conversation
+          </a>
 
-  <WhyChooseAJ />
+          <a class="text-link" href="/sellers/">
+            Thinking About Selling? →
+          </a>
+        </div>
+      </div>
 
-  <Services />
+      <div class="portrait-wrap">
+        <img
+          src="/images/aj-headshot.png"
+          alt="AJ Tayfel, REALTOR®"
+          width="900"
+          height="1125"
+        />
+      </div>
+    </div>
+  </section>
 
-  <Communities />
+  <section class="services-section">
+    <div class="container">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">How I Can Help</p>
 
+          <h2>
+            Start with where you are.<br />
+            Build toward what is next.
+          </h2>
+        </div>
+
+        <p>
+          Every move has different priorities. The goal is to understand
+          yours early, then make the real estate decisions fit the larger
+          plan.
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <a class="service" href="/sellers/">
+          <span>01</span>
+
+          <div>
+            <p class="service-label">Selling</p>
+            <h3>Prepare and position your home.</h3>
+            <p>
+              Build a thoughtful listing plan around preparation, timing,
+              presentation, and the next step after the sale.
+            </p>
+          </div>
+
+          <strong>Seller Resources →</strong>
+        </a>
+
+        <a class="service" href="/buyers/">
+          <span>02</span>
+
+          <div>
+            <p class="service-label">Buying</p>
+            <h3>Make the next purchase deliberately.</h3>
+            <p>
+              Clarify your priorities, understand the local market, and make
+              decisions with a clear view of the entire transaction.
+            </p>
+          </div>
+
+          <strong>Buyer Resources →</strong>
+        </a>
+
+        <a class="service" href="/relocation/">
+          <span>03</span>
+
+          <div>
+            <p class="service-label">Relocation</p>
+            <h3>Coordinate more than one market.</h3>
+            <p>
+              Selling in Illinois while moving elsewhere? Plan the local
+              transaction and destination side as parts of the same move.
+            </p>
+          </div>
+
+          <strong>Explore Relocation →</strong>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="meet-section">
+    <div class="container meet-grid">
+      <div class="meet-image">
+        <img
+          src="/images/aj-headshot.png"
+          alt="AJ Tayfel, REALTOR®"
+          width="900"
+          height="1125"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="meet-copy">
+        <p class="eyebrow">Meet AJ</p>
+
+        <h2>
+          Local knowledge.<br />
+          Straightforward guidance.
+        </h2>
+
+        <p class="meet-lede">
+          Real estate decisions are easier when the advice starts with your
+          situation instead of a sales script.
+        </p>
+
+        <p>
+          I serve buyers and sellers throughout DuPage County and Chicago's
+          western suburbs, with a focus on clear communication, practical
+          planning, and helping clients understand the decisions that matter.
+        </p>
+
+        <p>
+          For homeowners relocating out of Illinois, I can also help keep the
+          Illinois sale connected to the larger move and coordinate an
+          introduction to an appropriately licensed real estate professional
+          in the destination market when needed.
+        </p>
+
+        <div class="meet-actions">
+          <a class="button-premium light-button" href="/about/">
+            Learn More About AJ
+          </a>
+
+          <a class="direct-link" href={`tel:${phoneHref}`}>
+            Call {site.contact.phone}
+          </a>
+
+          <a class="direct-link" href={`mailto:${site.contact.email}`}>
+            Email AJ
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="local-section">
+    <div class="container local-grid">
+      <div>
+        <p class="eyebrow">Local Focus</p>
+
+        <h2>
+          DuPage County & the western suburbs.
+        </h2>
+
+        <p>
+          Real estate is local. Neighborhood character, housing stock,
+          property taxes, commuting patterns, schools, amenities, and market
+          conditions can vary significantly from one community to another.
+        </p>
+
+        <a class="text-link dark-link" href="/communities/">
+          Explore Communities →
+        </a>
+      </div>
+
+      <div class="local-index">
+        <div>
+          <span>01</span>
+          <strong>Naperville</strong>
+        </div>
+
+        <div>
+          <span>02</span>
+          <strong>Wheaton</strong>
+        </div>
+
+        <div>
+          <span>03</span>
+          <strong>Downers Grove</strong>
+        </div>
+
+        <div>
+          <span>04</span>
+          <strong>Glen Ellyn</strong>
+        </div>
+
+        <div>
+          <span>05</span>
+          <strong>Lisle</strong>
+        </div>
+
+        <div>
+          <span>06</span>
+          <strong>Western Suburbs</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relocation-feature">
+    <div class="container relocation-grid">
+      <div>
+        <p class="eyebrow">Moving Out of Illinois?</p>
+
+        <h2>
+          One move.<br />
+          Two real estate markets.
+        </h2>
+
+        <p>
+          If your next move takes you across state lines, your current home
+          and destination purchase should not be treated as unrelated
+          transactions.
+        </p>
+
+        <a class="button-premium primary" href="/relocation/">
+          Explore Relocation
+        </a>
+      </div>
+
+      <div class="relocation-links">
+        <a href="/relocation/chicago-to-southwest-florida/">
+          <span>Featured</span>
+          <strong>Chicago → Southwest Florida</strong>
+          <b>↗</b>
+        </a>
+
+        <a href="/relocation/chicago-to-fort-myers/">
+          <span>Guide</span>
+          <strong>Chicago → Fort Myers</strong>
+          <b>↗</b>
+        </a>
+
+        <a href="/relocation/chicago-to-cape-coral/">
+          <span>Guide</span>
+          <strong>Chicago → Cape Coral</strong>
+          <b>↗</b>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing-section">
+    <div class="container closing-inner">
+      <div>
+        <p class="eyebrow">Let's Talk</p>
+
+        <h2>
+          What are you trying to accomplish?
+        </h2>
+
+        <p>
+          You do not need to have every detail figured out before starting
+          the conversation.
+        </p>
+      </div>
+
+      <a class="button-premium dark-button" href="/contact/">
+        Contact AJ
+      </a>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .hero,
+  .services-section,
+  .meet-section,
+  .local-section,
+  .relocation-feature,
+  .closing-section {
+    --ink: #102c3c;
+    --ink-deep: #092432;
+    --paper: #fbfaf6;
+    --warm: #f2eee6;
+    --line: rgba(16,44,60,.16);
+    --gold: #a88b55;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    color: var(--gold);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: var(--paper);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 410px;
+    gap: clamp(3rem, 8vw, 7rem);
+    align-items: center;
+  }
+
+  .hero h1,
+  .section-heading h2,
+  .meet-copy h2,
+  .local-section h2,
+  .relocation-feature h2,
+  .closing-section h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    letter-spacing: -.04em;
+  }
+
+  .hero h1 {
+    max-width: 850px;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(3.8rem, 7vw, 6.8rem);
+    line-height: .96;
+  }
+
+  .hero-lede {
+    max-width: 720px;
+    margin-top: 2rem;
+    color: #647078;
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    line-height: 1.8;
+  }
+
+  .hero-actions,
+  .meet-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    align-items: center;
+    margin-top: 2.3rem;
+  }
+
+  .portrait-wrap {
+    width: 360px;
+    justify-self: center;
+    padding: 10px;
+    border: 1px solid var(--line);
+    background: white;
+  }
+
+  .portrait-wrap img,
+  .meet-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .button-premium {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 52px;
+    padding: .9rem 1.55rem;
+    border-radius: 2px;
+    font-weight: 700;
+    transition: transform .2s ease;
+  }
+
+  .button-premium:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-premium.primary,
+  .dark-button {
+    background: var(--ink-deep);
+    color: white;
+  }
+
+  .text-link,
+  .direct-link {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: .25em;
+  }
+
+  .services-section {
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: white;
+  }
+
+  .split-heading {
+    display: grid;
+    grid-template-columns: 1fr .75fr;
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+
+  .section-heading h2,
+  .meet-copy h2,
+  .local-section h2,
+  .relocation-feature h2,
+  .closing-section h2 {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
+    line-height: 1.02;
+  }
+
+  .split-heading > p {
+    color: #647078;
+    line-height: 1.8;
+  }
+
+  .service-grid {
+    border-top: 1px solid var(--line);
+  }
+
+  .service {
+    display: grid;
+    grid-template-columns: 65px 1fr auto;
+    gap: clamp(1rem, 4vw, 3rem);
+    align-items: center;
+    padding: clamp(2rem, 5vw, 3.3rem) 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .service > span {
+    color: var(--gold);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+  }
+
+  .service-label {
+    color: var(--gold);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .service h3 {
+    margin: .4rem 0 .7rem;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    font-weight: 400;
+  }
+
+  .service p:not(.service-label) {
+    max-width: 700px;
+    color: #647078;
+    line-height: 1.7;
+  }
+
+  .service > strong {
+    color: var(--ink);
+    font-size: .86rem;
+    text-decoration: underline;
+    text-underline-offset: .22em;
+  }
+
+  .meet-section {
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: var(--ink-deep);
+    color: white;
+  }
+
+  .meet-grid {
+    display: grid;
+    grid-template-columns: 410px minmax(0, 1fr);
+    gap: clamp(3rem, 8vw, 7rem);
+    align-items: center;
+  }
+
+  .meet-image {
+    width: 360px;
+    justify-self: center;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(255,255,255,.06);
+  }
+
+  .meet-copy .eyebrow {
+    color: #c7ad79;
+  }
+
+  .meet-copy h2 {
+    color: white;
+  }
+
+  .meet-lede {
+    max-width: 650px;
+    margin: 1.5rem 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.45rem;
+    line-height: 1.55;
+  }
+
+  .meet-copy > p:not(.eyebrow):not(.meet-lede) {
+    max-width: 700px;
+    margin-top: 1rem;
+    color: rgba(255,255,255,.72);
+    line-height: 1.8;
+  }
+
+  .light-button {
+    background: white;
+    color: var(--ink-deep);
+  }
+
+  .meet-actions .direct-link {
+    color: white;
+  }
+
+  .local-section {
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: var(--warm);
+  }
+
+  .local-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: start;
+  }
+
+  .local-section p:not(.eyebrow) {
+    max-width: 600px;
+    margin-top: 1.4rem;
+    color: #647078;
+    line-height: 1.8;
+  }
+
+  .dark-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+  }
+
+  .local-index {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--line);
+  }
+
+  .local-index > div {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .local-index > div:nth-child(odd) {
+    padding-right: 1.5rem;
+  }
+
+  .local-index > div:nth-child(even) {
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--line);
+  }
+
+  .local-index span {
+    color: var(--gold);
+    font-size: .7rem;
+    font-weight: 800;
+  }
+
+  .local-index strong {
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+  }
+
+  .relocation-feature {
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: var(--paper);
+  }
+
+  .relocation-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: clamp(3rem, 8vw, 8rem);
+  }
+
+  .relocation-feature p:not(.eyebrow) {
+    max-width: 600px;
+    margin: 1.4rem 0 2rem;
+    color: #647078;
+    line-height: 1.8;
+  }
+
+  .relocation-links {
+    border-top: 1px solid var(--line);
+  }
+
+  .relocation-links a {
+    display: grid;
+    grid-template-columns: 95px 1fr 30px;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .relocation-links span {
+    color: var(--gold);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .relocation-links strong {
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+  }
+
+  .closing-section {
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    background: white;
+  }
+
+  .closing-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .closing-inner > div {
+    max-width: 760px;
+  }
+
+  .closing-inner p:not(.eyebrow) {
+    margin-top: 1rem;
+    color: #647078;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid,
+    .split-heading,
+    .meet-grid,
+    .local-grid,
+    .relocation-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .portrait-wrap,
+    .meet-image {
+      justify-self: start;
+    }
+
+    .closing-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .service {
+      grid-template-columns: 40px 1fr;
+    }
+
+    .service > strong {
+      grid-column: 2;
+    }
+
+    .local-index {
+      grid-template-columns: 1fr;
+    }
+
+    .local-index > div,
+    .local-index > div:nth-child(odd),
+    .local-index > div:nth-child(even) {
+      padding: 1.3rem 0;
+      border-left: 0;
+    }
+
+    .relocation-links a {
+      grid-template-columns: 1fr 28px;
+    }
+
+    .relocation-links span {
+      grid-column: 1 / -1;
+    }
+
+    .portrait-wrap,
+    .meet-image {
+      width: min(360px, 100%);
+    }
+  }
+</style>
