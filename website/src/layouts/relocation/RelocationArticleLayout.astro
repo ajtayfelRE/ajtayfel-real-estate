@@ -1,0 +1,379 @@
+---
+import BaseLayout from "../BaseLayout.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  heading: string;
+  lede: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  ctaEyebrow?: string;
+  ctaTitle?: string;
+  ctaText?: string;
+}
+
+const {
+  title,
+  description,
+  eyebrow,
+  heading,
+  lede,
+  schema,
+  ctaEyebrow = "Planning Your Move?",
+  ctaTitle = "Start with your Illinois home and your relocation timeline.",
+  ctaText =
+    "Tell me where you are now, where you're considering moving, and what you're trying to coordinate."
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+>
+  <article class="relocation-article">
+    <header class="article-hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">{eyebrow}</p>
+
+        <h1>{heading}</h1>
+
+        <p class="lede">{lede}</p>
+
+        <div class="hero-meta">
+          <span>Illinois Home Sale</span>
+          <span>Interstate Relocation</span>
+          <span>Destination Planning</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="container article-layout">
+      <main class="article-content">
+        <slot />
+      </main>
+
+      <aside class="article-sidebar">
+        <div class="sidebar-card">
+          <p class="eyebrow">{ctaEyebrow}</p>
+
+          <h2>{ctaTitle}</h2>
+
+          <p>{ctaText}</p>
+
+          <a
+            class="sidebar-button"
+            href="/relocation/chicago-to-southwest-florida/#relocation-form-heading"
+          >
+            Start My Relocation Plan
+          </a>
+
+          <a class="sidebar-link" href="/contact/">
+            Contact AJ
+          </a>
+        </div>
+
+        <div class="sidebar-note">
+          <p>
+            Florida representation, when needed, is provided by appropriately
+            licensed Florida real estate professionals.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .relocation-article {
+    --ink: #102c3c;
+    --ink-deep: #092432;
+    --paper: #fbfaf6;
+    --warm: #f2eee6;
+    --line: rgba(16,44,60,.16);
+    --gold: #a88b55;
+  }
+
+  .article-hero {
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: var(--ink-deep);
+    color: white;
+  }
+
+  .hero-inner {
+    max-width: 1000px;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    color: #c7ad79;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .article-hero h1 {
+    max-width: 980px;
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3.5rem, 7vw, 6.6rem);
+    font-weight: 400;
+    line-height: .97;
+    letter-spacing: -.04em;
+  }
+
+  .lede {
+    max-width: 790px;
+    margin-top: 2rem;
+    color: rgba(255,255,255,.75);
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    line-height: 1.8;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,.18);
+  }
+
+  .hero-meta span {
+    color: rgba(255,255,255,.55);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: clamp(3rem, 7vw, 6rem);
+    align-items: start;
+    padding-top: clamp(4rem, 8vw, 7rem);
+    padding-bottom: clamp(5rem, 10vw, 9rem);
+  }
+
+  .article-content {
+    max-width: 760px;
+  }
+
+  .article-content :global(p),
+  .article-content :global(li) {
+    color: #52636c;
+    line-height: 1.85;
+  }
+
+  .article-content :global(p + p) {
+    margin-top: 1.1rem;
+  }
+
+  .article-content :global(h2) {
+    margin: 3.8rem 0 1.1rem;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -.025em;
+  }
+
+  .article-content :global(h3) {
+    margin: 2rem 0 .7rem;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+  }
+
+  .article-content :global(a) {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+
+  .article-content :global(ul) {
+    margin: 1.3rem 0;
+    padding-left: 1.3rem;
+  }
+
+  .article-content :global(li + li) {
+    margin-top: .75rem;
+  }
+
+  .article-content :global(.quick-answer) {
+    margin: 2.5rem 0;
+    padding: 1.75rem 0 1.75rem 1.5rem;
+    border-left: 2px solid var(--gold);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    line-height: 1.65;
+  }
+
+  .article-content :global(.research-grid) {
+    counter-reset: research-item;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 3rem;
+    margin-top: 2.5rem;
+  }
+
+  .article-content :global(.research-grid section) {
+    counter-increment: research-item;
+    position: relative;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid var(--line);
+    background: transparent;
+  }
+
+  .article-content :global(.research-grid section)::before {
+    content: "0" counter(research-item);
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--gold);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+  }
+
+  .article-content :global(.research-grid h3) {
+    margin: 0 0 .65rem;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .article-content :global(.research-grid section p) {
+    max-width: 34rem;
+    margin: 0;
+    font-size: .92rem;
+    line-height: 1.75;
+  }
+
+  .article-content :global(.steps),
+  .article-content :global(.decision-grid) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 2rem;
+    border: 1px solid var(--line);
+    background: var(--line);
+  }
+
+  .article-content :global(.steps section),
+  .article-content :global(.decision-grid section) {
+    padding: 1.5rem;
+    background: var(--paper);
+  }
+
+  .article-content :global(.steps section p),
+  .article-content :global(.decision-grid section p) {
+    margin: 0;
+    font-size: .92rem;
+    line-height: 1.7;
+  }
+
+  .article-content :global(.steps span),
+  .article-content :global(.decision-grid span) {
+    display: block;
+    margin-bottom: .6rem;
+    color: var(--gold);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+  }
+
+  .article-content :global(.disclaimer) {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: var(--warm);
+    border: 0;
+    border-top: 2px solid var(--gold);
+    color: #68747a;
+    font-size: .84rem;
+    line-height: 1.7;
+  }
+
+  .article-sidebar {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .sidebar-card {
+    padding: 2rem;
+    background: var(--ink-deep);
+    color: white;
+  }
+
+  .sidebar-card h2 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .sidebar-card > p:not(.eyebrow) {
+    margin-top: 1rem;
+    color: rgba(255,255,255,.68);
+    font-size: .9rem;
+    line-height: 1.7;
+  }
+
+  .sidebar-button {
+    display: block;
+    margin-top: 1.6rem;
+    padding: .9rem 1rem;
+    background: white;
+    color: var(--ink-deep);
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .sidebar-link {
+    display: block;
+    margin-top: 1rem;
+    color: white;
+    font-size: .88rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: .22em;
+  }
+
+  .sidebar-note {
+    padding: 1.3rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sidebar-note p {
+    color: #7a858a;
+    font-size: .75rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .article-sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .article-content :global(.research-grid),
+    .article-content :global(.steps),
+    .article-content :global(.decision-grid) {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

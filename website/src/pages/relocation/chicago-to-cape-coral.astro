@@ -1,32 +1,63 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import RelocationArticleLayout from "../../layouts/relocation/RelocationArticleLayout.astro";
+
+const pageSchema = [
+  {
+    "@type": "Article",
+    headline: "Moving From Chicago to Cape Coral, Florida",
+    description:
+      "A homeowner-focused guide to moving from the Chicago area to Cape Coral while coordinating an Illinois home sale and Florida purchase.",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://ajtayfel.com/relocation/chicago-to-cape-coral/"
+    },
+    author: {
+      "@id": "https://ajtayfel.com/#aj-tayfel"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Real People Realty"
+    },
+    image: "https://ajtayfel.com/images/aj-headshot.png"
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://ajtayfel.com/"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Relocation",
+        item: "https://ajtayfel.com/relocation/"
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Chicago to Cape Coral",
+        item: "https://ajtayfel.com/relocation/chicago-to-cape-coral/"
+      }
+    ]
+  }
+];
 ---
 
-<BaseLayout
+<RelocationArticleLayout
   title="Moving From Chicago to Cape Coral, Florida | AJ Tayfel"
   description="A homeowner-focused Chicago to Cape Coral relocation guide covering an Illinois home sale, transaction timing, waterfront property research, flood and insurance due diligence, and Cape Coral utility assessments."
+  eyebrow="Chicago → Cape Coral"
+  heading="Moving From Chicago to Cape Coral, Florida"
+  lede="If you own a home in the Chicago area and are considering Cape Coral, the move involves two real estate markets — plus Florida-specific questions about flood risk, insurance, utilities, associations, and, for some properties, waterfront features."
+  schema={pageSchema}
+  ctaEyebrow="Chicago → Cape Coral"
+  ctaTitle="Planning the Illinois sale and Cape Coral move?"
+  ctaText="Tell me about your current home, timing, and what you are considering in Southwest Florida."
 >
-  <article>
-    <header class="article-hero">
-      <div class="container article-header">
-        <p class="eyebrow">Chicago → Cape Coral</p>
-
-        <h1>
-          Moving From Chicago to Cape Coral, Florida
-        </h1>
-
-        <p class="lede">
-          If you own a home in the Chicago area and are considering Cape Coral,
-          the move involves two real estate markets — plus Florida-specific
-          questions about flood risk, insurance, utilities, associations, and,
-          for some properties, waterfront features.
-        </p>
-      </div>
-    </header>
-
-    <div class="container article-layout">
-      <main class="article-content">
-        <p>
+<p>
           Cape Coral can look very different from the Chicago-area housing
           market. That makes early research useful, but your destination search
           should still begin with one basic question: what needs to happen with
@@ -56,7 +87,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </p>
 
         <p>
-          If you're still at that stage, start with
+          If you're still at that stage, start with{" "}
           <a href="/relocation/selling-illinois-home-before-moving-to-florida/">
             Selling Your Illinois Home Before Moving to Florida
           </a>.
@@ -77,7 +108,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </p>
 
         <p>
-          For a closer comparison, read
+          For a closer comparison, read{" "}
           <a href="/relocation/should-you-sell-illinois-house-before-buying-in-florida/">
             Should You Sell Your Illinois House Before Buying in Florida?
           </a>.
@@ -304,212 +335,4 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           or financial advice. Property-specific questions should be reviewed
           with the appropriate licensed professionals and government resources.
         </aside>
-      </main>
-
-      <aside class="article-cta">
-        <div class="cta-card">
-          <p class="eyebrow">Chicago → Cape Coral</p>
-
-          <h2>
-            Planning the Illinois sale and Cape Coral move?
-          </h2>
-
-          <p>
-            Tell me about your current home, timing, and what you're
-            considering in Southwest Florida.
-          </p>
-
-          <a
-            class="button primary"
-            href="/relocation/chicago-to-southwest-florida/#relocation-form-heading"
-          >
-            Start My Relocation Plan
-          </a>
-
-          <a
-            class="secondary-link"
-            href="/contact/"
-          >
-            Contact AJ
-          </a>
-        </div>
-      </aside>
-    </div>
-  </article>
-</BaseLayout>
-
-<style>
-  .article-hero {
-    padding: clamp(4rem, 8vw, 7rem) 1.25rem;
-    background: linear-gradient(135deg, #0b3c5d, #145278);
-    color: white;
-  }
-
-  .article-header {
-    max-width: 920px;
-  }
-
-  .article-header h1 {
-    max-width: 900px;
-    margin-bottom: 1.5rem;
-    font-size: clamp(2.7rem, 6vw, 4.8rem);
-    line-height: 1.04;
-  }
-
-  .eyebrow {
-    margin-bottom: .8rem;
-    font-size: .82rem;
-    font-weight: 800;
-    letter-spacing: .11em;
-    text-transform: uppercase;
-  }
-
-  .lede {
-    max-width: 800px;
-    color: rgba(255,255,255,.88);
-    font-size: 1.2rem;
-    line-height: 1.7;
-  }
-
-  .article-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 340px;
-    gap: clamp(3rem, 7vw, 6rem);
-    align-items: start;
-    padding-top: 5rem;
-    padding-bottom: 6rem;
-  }
-
-  .article-content {
-    max-width: 760px;
-  }
-
-  .article-content p,
-  .article-content li {
-    line-height: 1.8;
-  }
-
-  .article-content h2 {
-    margin-top: 3.25rem;
-    margin-bottom: 1rem;
-    color: var(--primary);
-    font-size: clamp(1.7rem, 3vw, 2.35rem);
-  }
-
-  .article-content h3 {
-    color: var(--primary);
-  }
-
-  .article-content a {
-    font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: .18em;
-  }
-
-  .quick-answer {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    border-left: 4px solid var(--secondary);
-    background: rgba(50, 140, 193, .07);
-    line-height: 1.7;
-  }
-
-  .research-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .research-grid section,
-  .steps section {
-    padding: 1.4rem;
-    border: 1px solid #ddd;
-    border-radius: .75rem;
-  }
-
-  .research-grid h3,
-  .steps h3 {
-    margin: 0 0 .55rem;
-  }
-
-  .research-grid p,
-  .steps p {
-    margin-bottom: 0;
-    font-size: .95rem;
-  }
-
-  .steps {
-    display: grid;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .steps span {
-    display: inline-block;
-    margin-bottom: .4rem;
-    color: var(--secondary);
-    font-size: .8rem;
-    font-weight: 800;
-    letter-spacing: .08em;
-  }
-
-  .article-cta {
-    position: sticky;
-    top: 7rem;
-  }
-
-  .cta-card {
-    padding: 2rem;
-    border-radius: 1rem;
-    background: #f5f5f5;
-  }
-
-  .cta-card h2 {
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
-  }
-
-  .cta-card p:not(.eyebrow) {
-    line-height: 1.65;
-  }
-
-  .cta-card .button {
-    display: block;
-    margin-top: 1.5rem;
-    text-align: center;
-  }
-
-  .secondary-link {
-    display: block;
-    margin-top: 1rem;
-    text-align: center;
-    font-weight: 700;
-    text-decoration: underline;
-  }
-
-  .disclaimer {
-    margin-top: 3rem;
-    padding: 1.4rem;
-    border-left: 4px solid var(--secondary);
-    background: #f7f7f7;
-    font-size: .9rem;
-    line-height: 1.65;
-  }
-
-  @media (max-width: 900px) {
-    .article-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .article-cta {
-      position: static;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .research-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
+</RelocationArticleLayout>

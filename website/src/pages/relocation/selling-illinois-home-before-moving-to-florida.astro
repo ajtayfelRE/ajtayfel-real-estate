@@ -1,32 +1,62 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import RelocationArticleLayout from "../../layouts/relocation/RelocationArticleLayout.astro";
+
+const pageSchema = [
+  {
+    "@type": "Article",
+    headline: 'Selling Your Illinois Home Before Moving to Florida',
+    description: 'A homeowner-focused guide to preparing and selling an Illinois home before relocating to Florida.',
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": 'https://ajtayfel.com/relocation/selling-illinois-home-before-moving-to-florida/'
+    },
+    author: {
+      "@id": "https://ajtayfel.com/#aj-tayfel"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Real People Realty"
+    },
+    image: "https://ajtayfel.com/images/aj-headshot.png"
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://ajtayfel.com/"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Relocation",
+        item: "https://ajtayfel.com/relocation/"
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: 'Selling Before Moving to Florida',
+        item: 'https://ajtayfel.com/relocation/selling-illinois-home-before-moving-to-florida/'
+      }
+    ]
+  }
+];
 ---
 
-<BaseLayout
-  title="Selling Your Illinois Home Before Moving to Florida | AJ Tayfel"
-  description="Planning to sell a home in Illinois before moving to Florida? Learn how to think through timing, preparation, closing coordination, and your next home purchase."
+<RelocationArticleLayout
+  title='Selling Your Illinois Home Before Moving to Florida | AJ Tayfel'
+  description='Planning to sell a home in Illinois before moving to Florida? Learn how to think through timing, preparation, closing coordination, and your next home purchase.'
+  eyebrow='Illinois → Florida Relocation'
+  heading='Selling Your Illinois Home Before Moving to Florida'
+  lede="For many Illinois homeowners, the hardest part of moving to Florida isn't choosing a destination. It's figuring out how to sell one home, buy another, and keep the timing from becoming unnecessarily complicated."
+  schema={pageSchema}
+  ctaEyebrow='Planning a Move?'
+  ctaTitle='Start with your Illinois home and your relocation timeline.'
+  ctaText="Tell me where you are now, where you're considering moving, and what you're trying to coordinate."
 >
-  <article>
-    <header class="article-hero">
-      <div class="container article-header">
-        <p class="eyebrow">Illinois → Florida Relocation</p>
-
-        <h1>
-          Selling Your Illinois Home Before Moving to Florida
-        </h1>
-
-        <p class="lede">
-          For many Illinois homeowners, the hardest part of moving to Florida
-          isn't choosing a destination. It's figuring out how to sell one home,
-          buy another, and keep the timing from becoming unnecessarily
-          complicated.
-        </p>
-      </div>
-    </header>
-
-    <div class="container article-layout">
-      <main class="article-content">
-        <p>
+<p>
           If you're preparing to leave Illinois for Florida, your current home
           may be one of the most important pieces of the relocation plan.
           Decisions about when to list, when to begin shopping in Florida, and
@@ -178,188 +208,4 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           lending, insurance, or financial advice. Specific questions in those
           areas should be reviewed with the appropriate licensed professional.
         </aside>
-      </main>
-
-      <aside class="article-cta">
-        <div class="cta-card">
-          <p class="eyebrow">Planning a Move?</p>
-
-          <h2>
-            Start with your Illinois home and your relocation timeline.
-          </h2>
-
-          <p>
-            Tell me where you are now, where you're considering moving, and
-            what you're trying to coordinate.
-          </p>
-
-          <a
-            class="button primary"
-            href="/relocation/chicago-to-southwest-florida/#relocation-form-heading"
-          >
-            Start My Relocation Plan
-          </a>
-
-          <a
-            class="secondary-link"
-            href="/contact/"
-          >
-            Contact AJ
-          </a>
-        </div>
-      </aside>
-    </div>
-  </article>
-</BaseLayout>
-
-<style>
-  .article-hero {
-    padding: clamp(4rem, 8vw, 7rem) 1.25rem;
-    background:
-      linear-gradient(135deg, #0b3c5d, #145278);
-    color: white;
-  }
-
-  .article-header {
-    max-width: 900px;
-  }
-
-  .article-header h1 {
-    max-width: 850px;
-    margin-bottom: 1.5rem;
-    font-size: clamp(2.7rem, 6vw, 4.8rem);
-    line-height: 1.04;
-  }
-
-  .eyebrow {
-    margin-bottom: .8rem;
-    font-size: .82rem;
-    font-weight: 800;
-    letter-spacing: .11em;
-    text-transform: uppercase;
-  }
-
-  .lede {
-    max-width: 760px;
-    color: rgba(255,255,255,.88);
-    font-size: 1.2rem;
-    line-height: 1.7;
-  }
-
-  .article-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 340px;
-    gap: clamp(3rem, 7vw, 6rem);
-    align-items: start;
-    padding-top: 5rem;
-    padding-bottom: 6rem;
-  }
-
-  .article-content {
-    max-width: 760px;
-  }
-
-  .article-content p,
-  .article-content li {
-    line-height: 1.8;
-  }
-
-  .article-content h2 {
-    margin-top: 3.25rem;
-    margin-bottom: 1rem;
-    color: var(--primary);
-    font-size: clamp(1.7rem, 3vw, 2.35rem);
-  }
-
-  .article-content a {
-    font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: .18em;
-  }
-
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .steps section {
-    padding: 1.4rem;
-    border: 1px solid #ddd;
-    border-radius: .75rem;
-  }
-
-  .steps span {
-    color: var(--secondary);
-    font-weight: 800;
-  }
-
-  .steps h3 {
-    margin: .5rem 0;
-  }
-
-  .steps p {
-    margin-bottom: 0;
-    font-size: .94rem;
-  }
-
-  .article-cta {
-    position: sticky;
-    top: 7rem;
-  }
-
-  .cta-card {
-    padding: 2rem;
-    border-radius: 1rem;
-    background: #f5f5f5;
-  }
-
-  .cta-card h2 {
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
-  }
-
-  .cta-card p:not(.eyebrow) {
-    line-height: 1.65;
-  }
-
-  .cta-card .button {
-    display: block;
-    margin-top: 1.5rem;
-    text-align: center;
-  }
-
-  .secondary-link {
-    display: block;
-    margin-top: 1rem;
-    text-align: center;
-    font-weight: 700;
-    text-decoration: underline;
-  }
-
-  .disclaimer {
-    margin-top: 3rem;
-    padding: 1.4rem;
-    border-left: 4px solid var(--secondary);
-    background: #f7f7f7;
-    font-size: .9rem;
-    line-height: 1.65;
-  }
-
-  @media (max-width: 900px) {
-    .article-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .article-cta {
-      position: static;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .steps {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
+</RelocationArticleLayout>

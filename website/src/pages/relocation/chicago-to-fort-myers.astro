@@ -1,32 +1,63 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import RelocationArticleLayout from "../../layouts/relocation/RelocationArticleLayout.astro";
+
+const pageSchema = [
+  {
+    "@type": "Article",
+    headline: "Moving From Chicago to Fort Myers, Florida",
+    description:
+      "A homeowner-focused guide to moving from the Chicago area to Fort Myers while coordinating an Illinois home sale and Florida purchase.",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://ajtayfel.com/relocation/chicago-to-fort-myers/"
+    },
+    author: {
+      "@id": "https://ajtayfel.com/#aj-tayfel"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Real People Realty"
+    },
+    image: "https://ajtayfel.com/images/aj-headshot.png"
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://ajtayfel.com/"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Relocation",
+        item: "https://ajtayfel.com/relocation/"
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Chicago to Fort Myers",
+        item: "https://ajtayfel.com/relocation/chicago-to-fort-myers/"
+      }
+    ]
+  }
+];
 ---
 
-<BaseLayout
+<RelocationArticleLayout
   title="Moving From Chicago to Fort Myers, Florida | AJ Tayfel"
   description="A homeowner-focused Chicago to Fort Myers relocation guide covering an Illinois home sale, transaction timing, Fort Myers home research, and coordinating both sides of the move."
+  eyebrow="Chicago → Fort Myers"
+  heading="Moving From Chicago to Fort Myers, Florida"
+  lede="If you own a home in the Chicago area and are considering Fort Myers, the move involves more than choosing a Florida property. The Illinois sale, Florida purchase, financing, timing, insurance research, and property due diligence all need to fit into one relocation plan."
+  schema={pageSchema}
+  ctaEyebrow="Chicago → Fort Myers"
+  ctaTitle="Planning the Illinois sale and Florida move?"
+  ctaText="Tell me about your current home, timing, and what you are considering in Fort Myers."
 >
-  <article>
-    <header class="article-hero">
-      <div class="container article-header">
-        <p class="eyebrow">Chicago → Fort Myers</p>
-
-        <h1>
-          Moving From Chicago to Fort Myers, Florida
-        </h1>
-
-        <p class="lede">
-          If you own a home in the Chicago area and are considering Fort Myers,
-          the move involves more than choosing a Florida property. The Illinois
-          sale, Florida purchase, financing, timing, insurance research, and
-          property due diligence all need to fit into one relocation plan.
-        </p>
-      </div>
-    </header>
-
-    <div class="container article-layout">
-      <main class="article-content">
-        <p>
+<p>
           Fort Myers is one of the Southwest Florida destinations worth
           considering for homeowners leaving the Chicago area. But before
           focusing entirely on listings in Florida, it helps to understand how
@@ -269,212 +300,4 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           advice. Property-specific questions should be reviewed with the
           appropriate licensed professionals and government resources.
         </aside>
-      </main>
-
-      <aside class="article-cta">
-        <div class="cta-card">
-          <p class="eyebrow">Chicago → Fort Myers</p>
-
-          <h2>
-            Planning the Illinois sale and Florida move?
-          </h2>
-
-          <p>
-            Tell me about your current home, timing, and what you are
-            considering in Fort Myers.
-          </p>
-
-          <a
-            class="button primary"
-            href="/relocation/chicago-to-southwest-florida/#relocation-form-heading"
-          >
-            Start My Relocation Plan
-          </a>
-
-          <a
-            class="secondary-link"
-            href="/contact/"
-          >
-            Contact AJ
-          </a>
-        </div>
-      </aside>
-    </div>
-  </article>
-</BaseLayout>
-
-<style>
-  .article-hero {
-    padding: clamp(4rem, 8vw, 7rem) 1.25rem;
-    background: linear-gradient(135deg, #0b3c5d, #145278);
-    color: white;
-  }
-
-  .article-header {
-    max-width: 920px;
-  }
-
-  .article-header h1 {
-    max-width: 900px;
-    margin-bottom: 1.5rem;
-    font-size: clamp(2.7rem, 6vw, 4.8rem);
-    line-height: 1.04;
-  }
-
-  .eyebrow {
-    margin-bottom: .8rem;
-    font-size: .82rem;
-    font-weight: 800;
-    letter-spacing: .11em;
-    text-transform: uppercase;
-  }
-
-  .lede {
-    max-width: 800px;
-    color: rgba(255,255,255,.88);
-    font-size: 1.2rem;
-    line-height: 1.7;
-  }
-
-  .article-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 340px;
-    gap: clamp(3rem, 7vw, 6rem);
-    align-items: start;
-    padding-top: 5rem;
-    padding-bottom: 6rem;
-  }
-
-  .article-content {
-    max-width: 760px;
-  }
-
-  .article-content p,
-  .article-content li {
-    line-height: 1.8;
-  }
-
-  .article-content h2 {
-    margin-top: 3.25rem;
-    margin-bottom: 1rem;
-    color: var(--primary);
-    font-size: clamp(1.7rem, 3vw, 2.35rem);
-  }
-
-  .article-content h3 {
-    color: var(--primary);
-  }
-
-  .article-content a {
-    font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: .18em;
-  }
-
-  .quick-answer {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    border-left: 4px solid var(--secondary);
-    background: rgba(50, 140, 193, .07);
-    line-height: 1.7;
-  }
-
-  .research-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .research-grid section,
-  .steps section {
-    padding: 1.4rem;
-    border: 1px solid #ddd;
-    border-radius: .75rem;
-  }
-
-  .research-grid h3,
-  .steps h3 {
-    margin: 0 0 .55rem;
-  }
-
-  .research-grid p,
-  .steps p {
-    margin-bottom: 0;
-    font-size: .95rem;
-  }
-
-  .steps {
-    display: grid;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .steps span {
-    display: inline-block;
-    margin-bottom: .4rem;
-    color: var(--secondary);
-    font-size: .8rem;
-    font-weight: 800;
-    letter-spacing: .08em;
-  }
-
-  .article-cta {
-    position: sticky;
-    top: 7rem;
-  }
-
-  .cta-card {
-    padding: 2rem;
-    border-radius: 1rem;
-    background: #f5f5f5;
-  }
-
-  .cta-card h2 {
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
-  }
-
-  .cta-card p:not(.eyebrow) {
-    line-height: 1.65;
-  }
-
-  .cta-card .button {
-    display: block;
-    margin-top: 1.5rem;
-    text-align: center;
-  }
-
-  .secondary-link {
-    display: block;
-    margin-top: 1rem;
-    text-align: center;
-    font-weight: 700;
-    text-decoration: underline;
-  }
-
-  .disclaimer {
-    margin-top: 3rem;
-    padding: 1.4rem;
-    border-left: 4px solid var(--secondary);
-    background: #f7f7f7;
-    font-size: .9rem;
-    line-height: 1.65;
-  }
-
-  @media (max-width: 900px) {
-    .article-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .article-cta {
-      position: static;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .research-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
+</RelocationArticleLayout>
