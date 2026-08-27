@@ -1,85 +1,275 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Button from "../components/Button.astro";
+import "../styles/buyers.css";
 ---
 
 <BaseLayout
-  title="Buying a Home | AJ Tayfel REALTOR®"
-  description="Guidance for home buyers throughout DuPage County and Chicago's western suburbs."
+  title="Buying a Home in DuPage County | AJ Tayfel"
+  description="Buyer guidance for home purchases throughout DuPage County and Chicago's western suburbs with AJ Tayfel, REALTOR®."
 >
-  <section class="page-header">
-    <div class="container">
-      <h1>Buying a Home</h1>
-      <p>
-        Clear guidance from your first showing through closing.
-      </p>
+  <section class="buyer-hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">For Buyers</p>
+
+        <h1>
+          Find the right home.<br />
+          Understand the decision.
+        </h1>
+
+        <p class="hero-lede">
+          Buying well is not just about finding a property you like.
+          It is about understanding the market, the property, the numbers,
+          and the tradeoffs before you commit.
+        </p>
+
+        <div class="hero-actions">
+          <a class="primary-button" href="/contact/">
+            Start a Buyer Conversation
+          </a>
+
+          <a class="secondary-link" href="/communities/">
+            Explore Communities →
+          </a>
+        </div>
+      </div>
+
+      <div class="buyer-index">
+        <p class="index-eyebrow">Buyer Planning</p>
+
+        <div class="index-row">
+          <span>01</span>
+          <strong>Priorities</strong>
+        </div>
+
+        <div class="index-row">
+          <span>02</span>
+          <strong>Market</strong>
+        </div>
+
+        <div class="index-row">
+          <span>03</span>
+          <strong>Property</strong>
+        </div>
+
+        <div class="index-row">
+          <span>04</span>
+          <strong>Offer</strong>
+        </div>
+
+        <div class="index-row">
+          <span>05</span>
+          <strong>Closing</strong>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="content-section">
-    <div class="container content-grid">
+  <section class="intro-section">
+    <div class="container intro-grid">
       <div>
-        <h2>A More Organized Buying Process</h2>
-        <p>
-          Buying a home involves more than finding the right property.
-          I help buyers understand the process, evaluate options, prepare
-          competitive offers, and stay organized through inspections,
-          financing, and closing.
+        <p class="eyebrow">The Approach</p>
+
+        <h2>
+          Start with what matters<br />
+          before looking at listings.
+        </h2>
+      </div>
+
+      <div class="intro-copy">
+        <p class="lead">
+          A productive home search starts with more than bedrooms, bathrooms,
+          and price.
         </p>
 
         <p>
-          My focus is on helping you make informed decisions without
-          unnecessary pressure.
+          Location, taxes, condition, monthly carrying costs, association
+          obligations, commute, future resale, and your own timing can all
+          change whether a property is actually a good fit.
         </p>
 
-        <Button href="/contact/" label="Start Your Home Search" />
+        <p>
+          The goal is to define those priorities early so each property can
+          be evaluated against a real plan instead of just emotion.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="container">
+      <div class="process-heading">
+        <p class="eyebrow">Buyer Roadmap</p>
+
+        <h2>
+          A clear process from<br />
+          search to closing.
+        </h2>
       </div>
 
-      <div class="card">
-        <h3>How I Can Help</h3>
-        <ul>
-          <li>Home search planning</li>
-          <li>Property and neighborhood guidance</li>
-          <li>Showing coordination</li>
-          <li>Offer strategy</li>
-          <li>Inspection and closing coordination</li>
-        </ul>
+      <div class="process-list">
+        <article>
+          <span>01</span>
+
+          <div>
+            <h3>Define the search</h3>
+            <p>
+              Establish the areas, property types, budget, timing, and
+              priorities that should guide the search.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span>02</span>
+
+          <div>
+            <h3>Understand the market</h3>
+            <p>
+              Review comparable sales, active competition, market pace, and
+              what different price points are actually delivering.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span>03</span>
+
+          <div>
+            <h3>Evaluate the property</h3>
+            <p>
+              Look beyond finishes and first impressions to condition,
+              disclosures, taxes, associations, and property-specific risks.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span>04</span>
+
+          <div>
+            <h3>Structure the offer</h3>
+            <p>
+              Consider price alongside financing, contingencies, timing,
+              possession, and the strength of the overall terms.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span>05</span>
+
+          <div>
+            <h3>Manage the transaction</h3>
+            <p>
+              Keep attorney review, inspection, appraisal, financing, and
+              closing milestones coordinated through completion.
+            </p>
+          </div>
+        </article>
       </div>
+    </div>
+  </section>
+
+  <section class="decision-section">
+    <div class="container decision-grid">
+      <div class="decision-copy">
+        <p class="eyebrow">Look Beyond the Listing Photos</p>
+
+        <h2>
+          The details can matter more than the décor.
+        </h2>
+
+        <p>
+          Two homes with the same asking price can create very different
+          ownership experiences and long-term costs.
+        </p>
+      </div>
+
+      <div class="decision-list">
+        <div>
+          <span>01</span>
+          <strong>Property taxes</strong>
+        </div>
+
+        <div>
+          <span>02</span>
+          <strong>Condition & maintenance</strong>
+        </div>
+
+        <div>
+          <span>03</span>
+          <strong>Association obligations</strong>
+        </div>
+
+        <div>
+          <span>04</span>
+          <strong>Location & commute</strong>
+        </div>
+
+        <div>
+          <span>05</span>
+          <strong>Resale considerations</strong>
+        </div>
+
+        <div>
+          <span>06</span>
+          <strong>Transaction timing</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="local-section">
+    <div class="container local-grid">
+      <div>
+        <p class="eyebrow">Local Market</p>
+
+        <h2>
+          DuPage County & Chicago's western suburbs.
+        </h2>
+
+        <p>
+          Neighborhood character, housing stock, taxes, amenities, and market
+          behavior vary considerably from community to community.
+        </p>
+      </div>
+
+      <div class="local-actions">
+        <a href="/communities/">
+          <span>Explore</span>
+          <strong>Local Communities</strong>
+          <b>↗</b>
+        </a>
+
+        <a href="/contact/">
+          <span>Discuss</span>
+          <strong>Your Home Search</strong>
+          <b>↗</b>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing-section">
+    <div class="container closing-inner">
+      <div>
+        <p class="eyebrow">Planning a Purchase?</p>
+
+        <h2>
+          Start with the conversation,<br />
+          not the showing schedule.
+        </h2>
+
+        <p>
+          Tell me where you are in the process and what you are hoping to
+          accomplish.
+        </p>
+      </div>
+
+      <a class="closing-button" href="/contact/">
+        Contact AJ
+      </a>
     </div>
   </section>
 </BaseLayout>
-
-<style>
-.page-header {
-  padding: 5rem 0 3rem;
-  text-align: center;
-  background: var(--background);
-}
-
-.content-section {
-  padding: 5rem 0;
-}
-
-.content-grid {
-  display: grid;
-  grid-template-columns: 1.3fr .7fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.card {
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-}
-
-.card ul {
-  padding-left: 1.25rem;
-}
-
-@media (max-width: 900px) {
-  .content-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>

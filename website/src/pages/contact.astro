@@ -4,66 +4,72 @@ import ContactLeadForm from "../components/contact/ContactLeadForm.astro";
 import { site } from "../config/site";
 
 const phoneHref = site.contact.phone.replace(/[^\d+]/g, "");
+import "../styles/contact.css";
 ---
 
 <BaseLayout
   title="Contact AJ Tayfel | REALTOR®"
   description="Contact AJ Tayfel for help buying, selling, or planning an out-of-state real estate move."
 >
-  <section class="page-header">
-    <div class="container">
-      <p class="eyebrow">Get In Touch</p>
-      <h1>Let’s Talk About Your Real Estate Plans</h1>
-      <p>
-        Buying, selling, relocating, or just trying to understand your
-        options? Reach me directly or send a message below.
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Contact AJ</p>
+
+      <h1>
+        Let's talk about<br />
+        what comes next.
+      </h1>
+
+      <p class="lede">
+        Buying, selling, relocating, or still trying to understand your
+        options? Start with a conversation.
       </p>
     </div>
   </section>
 
   <section class="contact-section">
     <div class="container contact-grid">
-      <div class="contact-intro">
-        <h2>Contact AJ Directly</h2>
+      <div class="contact-info">
+        <p class="eyebrow">Direct Contact</p>
+
+        <h2>
+          Call, email,<br />
+          or send a message.
+        </h2>
 
         <p>
-          Choose whichever method is easiest for you. My phone number and
-          email are shown below and are directly clickable.
+          Choose whichever method is easiest. The phone number and email below
+          are directly clickable on desktop and mobile.
         </p>
 
-        <div class="contact-actions">
-          <a
-            class="contact-action"
-            href={`tel:${phoneHref}`}
-            aria-label={`Call AJ Tayfel at ${site.contact.phone}`}
-          >
-            <span class="action-label">Call AJ</span>
+        <div class="direct-actions">
+          <a href={`tel:${phoneHref}`}>
+            <span>Call AJ</span>
             <strong>{site.contact.phone}</strong>
-            <span class="action-hint">Click or tap to call</span>
+            <b>↗</b>
           </a>
 
-          <a
-            class="contact-action"
-            href={`mailto:${site.contact.email}`}
-            aria-label={`Email AJ Tayfel at ${site.contact.email}`}
-          >
-            <span class="action-label">Email AJ</span>
+          <a href={`mailto:${site.contact.email}`}>
+            <span>Email AJ</span>
             <strong>{site.contact.email}</strong>
-            <span class="action-hint">Click or tap to email</span>
+            <b>↗</b>
           </a>
         </div>
 
-        <div class="brokerage-note">
+        <div class="identity">
           <strong>{site.agent.fullName}, {site.agent.title}</strong>
           <span>{site.agent.brokerage}</span>
           <span>{site.address.city}, {site.address.state}</span>
         </div>
       </div>
 
-      <div>
-        <h2 class="form-heading">Send a Message</h2>
+      <div class="form-column">
+        <p class="eyebrow">Send a Message</p>
+
+        <h2>Tell me what you are planning.</h2>
+
         <p class="form-intro">
-          Tell me a little about what you need and I’ll review your inquiry.
+          A little context is enough to get the conversation started.
         </p>
 
         <ContactLeadForm />
@@ -71,119 +77,3 @@ const phoneHref = site.contact.phone.replace(/[^\d+]/g, "");
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  .page-header {
-    padding: 5rem 1.25rem 3.5rem;
-    text-align: center;
-    background: var(--background);
-  }
-
-  .page-header .container {
-    max-width: 780px;
-  }
-
-  .page-header h1 {
-    margin: 0 0 1rem;
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    line-height: 1.05;
-  }
-
-  .page-header p {
-    line-height: 1.7;
-  }
-
-  .eyebrow {
-    margin-bottom: 0.75rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .contact-section {
-    padding: 5rem 0;
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-    gap: clamp(3rem, 7vw, 6rem);
-    align-items: start;
-  }
-
-  .contact-intro > p,
-  .form-intro {
-    line-height: 1.7;
-  }
-
-  .contact-actions {
-    display: grid;
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-
-  .contact-action {
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
-    padding: 1.3rem 1.4rem;
-    border: 2px solid var(--primary);
-    border-radius: .75rem;
-    color: inherit;
-    text-decoration: none;
-    transition:
-      transform .15s ease,
-      box-shadow .15s ease;
-  }
-
-  .contact-action:hover,
-  .contact-action:focus-visible {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-  }
-
-  .contact-action strong {
-    color: var(--primary);
-    font-size: 1.15rem;
-    text-decoration: underline;
-    text-underline-offset: .2em;
-  }
-
-  .action-label {
-    font-size: .8rem;
-    font-weight: 800;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-  }
-
-  .action-hint {
-    margin-top: .2rem;
-    font-size: .8rem;
-    opacity: .7;
-  }
-
-  .brokerage-note {
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #ddd;
-    font-size: .9rem;
-  }
-
-  .form-heading {
-    margin-bottom: .5rem;
-  }
-
-  .form-intro {
-    margin-bottom: 1.5rem;
-  }
-
-  @media (max-width: 850px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

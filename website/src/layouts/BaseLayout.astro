@@ -9,13 +9,15 @@ export interface Props {
   description?: string;
   image?: string;
   noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
   title = site.website.title,
   description = site.website.description,
   image = "/images/aj-headshot.png",
-  noindex = false
+  noindex = false,
+  schema
 } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL("https://ajtayfel.com");
@@ -33,6 +35,12 @@ const canonicalUrl = new URL(canonicalPath, siteUrl);
 const imageUrl = new URL(image, siteUrl);
 
 const sameAs = Object.values(site.social).filter(Boolean);
+
+const pageSchema = schema
+  ? Array.isArray(schema)
+    ? schema
+    : [schema]
+  : [];
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -66,7 +74,8 @@ const structuredData = {
         name: site.agent.brokerage
       },
       ...(sameAs.length > 0 ? { sameAs } : {})
-    }
+    },
+    ...pageSchema
   ]
 };
 ---

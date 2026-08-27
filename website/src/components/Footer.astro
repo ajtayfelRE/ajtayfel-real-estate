@@ -5,14 +5,14 @@ const phoneHref = site.contact.phone.replace(/[^\d+]/g, "");
 ---
 
 <footer class="site-footer">
-  <div class="container footer-grid">
+  <div class="container footer-main">
     <div class="footer-brand">
       <img
         src="/branding/Full-Logo-Standard-White.png"
         alt="Real People Realty"
         class="footer-logo"
-        width="260"
-        height="70"
+        width="190"
+        height="52"
       />
 
       <div class="agent-details">
@@ -23,7 +23,7 @@ const phoneHref = site.contact.phone.replace(/[^\d+]/g, "");
     </div>
 
     <div class="footer-contact">
-      <h2>Contact</h2>
+      <p class="footer-label">Contact</p>
 
       <a href={`tel:${phoneHref}`}>
         {site.contact.phone}
@@ -43,29 +43,29 @@ const phoneHref = site.contact.phone.replace(/[^\d+]/g, "");
         src="/branding/Equal-Housing-white.png"
         alt="Equal Housing Opportunity"
         class="equal-housing"
-        width="55"
-        height="55"
+        width="40"
+        height="40"
       />
 
-      <p>
-        Equal Housing Opportunity.
-      </p>
+      <div>
+        <p>Equal Housing Opportunity.</p>
 
-      <p>
-        Florida real estate services, when applicable, are provided by
-        appropriately licensed Florida real estate professionals.
-      </p>
+        <p>
+          Florida real estate services, when applicable, are provided by
+          appropriately licensed Florida real estate professionals.
+        </p>
+      </div>
     </div>
   </div>
 
   <div class="container footer-bottom">
     <p>
-      &copy; {new Date().getFullYear()} {site.agent.fullName}.
-      All rights reserved.
+      &copy; {new Date().getFullYear()} {site.agent.fullName}. All rights reserved.
     </p>
 
     <p>
-      {site.agent.fullName}, {site.agent.title} &middot;
+      {site.agent.fullName}, {site.agent.title}
+      <span aria-hidden="true"> · </span>
       {site.agent.brokerage}
     </p>
   </div>
@@ -73,104 +73,140 @@ const phoneHref = site.contact.phone.replace(/[^\d+]/g, "");
 
 <style>
   .site-footer {
-    padding: 4rem 0 1.5rem;
-    background: var(--primary);
-    color: rgba(255, 255, 255, .88);
+    --footer-bg: #102c3c;
+    --footer-line: rgba(255,255,255,.15);
+    --footer-muted: rgba(255,255,255,.67);
+    --footer-gold: #a88b55;
+
+    padding: 2.75rem 0 1.2rem;
+    background: var(--footer-bg);
+    color: rgba(255,255,255,.86);
   }
 
-  .footer-grid {
+  .footer-main {
     display: grid;
-    grid-template-columns: 1.2fr .8fr 1fr;
-    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: 1fr .75fr 1.15fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
     align-items: start;
   }
 
   .footer-brand {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .footer-logo {
     display: block;
-    width: min(260px, 100%);
+    width: 180px;
+    max-width: 100%;
     height: auto;
   }
 
   .agent-details {
     display: flex;
     flex-direction: column;
-    gap: .2rem;
+    gap: .12rem;
   }
 
   .agent-details strong {
     color: white;
-    font-size: 1.2rem;
+    font-size: .95rem;
   }
 
   .agent-details span {
-    font-size: .92rem;
+    color: var(--footer-muted);
+    font-size: .78rem;
+    line-height: 1.5;
   }
 
   .footer-contact {
     display: flex;
     flex-direction: column;
-    gap: .55rem;
+    gap: .45rem;
   }
 
-  .footer-contact h2 {
-    margin-bottom: .35rem;
-    color: white;
-    font-size: 1rem;
+  .footer-label {
+    margin: 0 0 .35rem;
+    color: var(--footer-gold);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .16em;
     text-transform: uppercase;
-    letter-spacing: .08em;
   }
 
   .footer-contact a {
+    width: fit-content;
     color: white;
+    font-size: .88rem;
     font-weight: 700;
     text-decoration: underline;
+    text-decoration-thickness: 1px;
     text-underline-offset: .2em;
   }
 
-  .footer-contact a:hover,
-  .footer-contact a:focus-visible {
-    text-decoration-thickness: 2px;
+  .footer-contact span {
+    margin-top: .15rem;
+    color: var(--footer-muted);
+    font-size: .78rem;
   }
 
   .footer-compliance {
-    font-size: .82rem;
-    line-height: 1.5;
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 1rem;
+    align-items: start;
+    color: var(--footer-muted);
+    font-size: .74rem;
+    line-height: 1.55;
   }
 
   .equal-housing {
-    width: 46px;
+    display: block;
+    width: 34px;
     height: auto;
-    margin-bottom: .75rem;
+  }
+
+  .footer-compliance p {
+    margin: 0;
   }
 
   .footer-compliance p + p {
-    margin-top: .75rem;
+    margin-top: .55rem;
   }
 
   .footer-bottom {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, .18);
-    font-size: .78rem;
-    color: rgba(255, 255, 255, .7);
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--footer-line);
+    color: rgba(255,255,255,.5);
+    font-size: .68rem;
+  }
+
+  .footer-bottom p {
+    margin: 0;
   }
 
   @media (max-width: 800px) {
-    .footer-grid {
+    .site-footer {
+      padding-top: 2.5rem;
+    }
+
+    .footer-main {
       grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      width: 165px;
     }
 
     .footer-bottom {
       flex-direction: column;
+      gap: .4rem;
     }
   }
 </style>

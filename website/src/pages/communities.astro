@@ -1,95 +1,88 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Button from "../components/Button.astro";
+import "../styles/communities.css";
 ---
 
 <BaseLayout
-  title="DuPage County Communities | AJ Tayfel REALTOR®"
-  description="Explore communities throughout DuPage County and Chicago's western suburbs."
+  title="DuPage County Communities | AJ Tayfel"
+  description="Explore communities throughout DuPage County and Chicago's western suburbs with AJ Tayfel, REALTOR®."
 >
-  <section class="page-header">
-    <div class="container">
-      <h1>Communities</h1>
-      <p>
-        Explore DuPage County and Chicago's western suburbs.
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Local Communities</p>
+
+      <h1>
+        Find the place that<br />
+        fits the way you live.
+      </h1>
+
+      <p class="lede">
+        A community is more than a ZIP code. Housing stock, taxes, access,
+        amenities, transportation, and neighborhood character can change
+        significantly from one suburb to another.
       </p>
     </div>
   </section>
 
-  <section class="communities-section">
-    <div class="container">
-      <div class="community-grid">
-        <article class="card">
-          <h2>Naperville</h2>
-          <p>
-            A major DuPage County community with a wide range of neighborhoods,
-            housing styles, amenities, and transportation options.
-          </p>
-        </article>
-
-        <article class="card">
-          <h2>Westmont</h2>
-          <p>
-            A western suburb with convenient transportation access and a mix
-            of residential options.
-          </p>
-        </article>
-
-        <article class="card">
-          <h2>Bloomingdale</h2>
-          <p>
-            A DuPage County community offering established neighborhoods and
-            access to surrounding western suburban amenities.
-          </p>
-        </article>
-
-        <article class="card">
-          <h2>Western Suburbs</h2>
-          <p>
-            Not sure which community fits your priorities? We can compare
-            locations, housing options, and commute considerations together.
-          </p>
-        </article>
+  <section class="intro">
+    <div class="container intro-grid">
+      <div>
+        <p class="eyebrow">Western Suburbs</p>
+        <h2>Compare communities with context.</h2>
       </div>
 
-      <div class="cta">
-        <Button href="/contact/" label="Talk About Your Home Search" />
+      <p>
+        The right location depends on what matters to you. These are several
+        communities I serve throughout DuPage County and the surrounding
+        western suburbs.
+      </p>
+    </div>
+  </section>
+
+  <section class="community-section">
+    <div class="container community-list">
+      <article>
+        <span>01</span>
+        <div><h2>Naperville</h2><p>A large and varied suburban market with multiple housing styles, established neighborhoods, newer development, and extensive amenities.</p></div>
+      </article>
+
+      <article>
+        <span>02</span>
+        <div><h2>Wheaton</h2><p>An established DuPage County community with a traditional downtown, varied housing stock, and convenient access across the western suburbs.</p></div>
+      </article>
+
+      <article>
+        <span>03</span>
+        <div><h2>Downers Grove</h2><p>A western-suburban market with mature neighborhoods, commuter access, a walkable downtown area, and a broad range of home types.</p></div>
+      </article>
+
+      <article>
+        <span>04</span>
+        <div><h2>Glen Ellyn</h2><p>An established community with distinctive neighborhoods, older housing stock, local amenities, and access to the broader DuPage County market.</p></div>
+      </article>
+
+      <article>
+        <span>05</span>
+        <div><h2>Lisle</h2><p>A centrally located DuPage community with condominium, townhome, and single-family options plus strong regional access.</p></div>
+      </article>
+
+      <article>
+        <span>06</span>
+        <div><h2>Beyond DuPage</h2><p>Considering another western suburb? We can compare the local market, housing options, commute, and transaction considerations that matter for your move.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="container closing-inner">
+      <div>
+        <p class="eyebrow">Not Sure Where to Focus?</p>
+        <h2>Tell me what matters most in your next community.</h2>
       </div>
+
+      <a class="button-premium" href="/contact/">
+        Start a Conversation
+      </a>
     </div>
   </section>
 </BaseLayout>
-
-<style>
-.page-header {
-  padding: 5rem 0 3rem;
-  text-align: center;
-  background: var(--background);
-}
-
-.communities-section {
-  padding: 5rem 0;
-}
-
-.community-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-.card {
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-}
-
-.cta {
-  margin-top: 3rem;
-  text-align: center;
-}
-
-@media (max-width: 800px) {
-  .community-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>

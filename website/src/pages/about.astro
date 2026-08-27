@@ -1,99 +1,126 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../config/site";
 
-const pageTitle = "About AJ Tayfel";
+const phoneHref = site.contact.phone.replace(/[^\d+]/g, "");
+import "../styles/about.css";
 ---
 
-<BaseLayout title={pageTitle}>
+<BaseLayout
+  title="About AJ Tayfel | REALTOR®"
+  description="Learn about AJ Tayfel, REALTOR®, serving DuPage County and Chicago's western suburbs with Real People Realty."
+>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">About AJ</p>
 
-<section class="page-header">
+        <h1>
+          Clear guidance for<br />
+          meaningful moves.
+        </h1>
 
-  <div class="container">
+        <p class="lede">
+          Real estate is easier to navigate when you understand the choices
+          in front of you and have someone keeping the larger goal in view.
+        </p>
+      </div>
 
-    <h1>About AJ Tayfel</h1>
-
-    <p>
-      Helping buyers and sellers throughout DuPage County with
-      honest guidance, local knowledge, and personalized service.
-    </p>
-
-  </div>
-
-</section>
-
-<section class="about">
-
-  <div class="container about-grid">
-
-    <div>
-
-      <img
-        src="/images/aj-headshot.png"
-        alt="AJ Tayfel"
-      />
-
+      <div class="portrait-wrap">
+        <img
+          src="/images/aj-headshot.png"
+          alt="AJ Tayfel, REALTOR®"
+          width="900"
+          height="1125"
+        />
+      </div>
     </div>
+  </section>
 
-    <div>
+  <section class="story">
+    <div class="container story-grid">
+      <div>
+        <p class="eyebrow">The Approach</p>
+        <h2>Practical advice. Local perspective.</h2>
+      </div>
 
-      <h2>Local Knowledge. Personal Service.</h2>
+      <div class="story-copy">
+        <p>
+          I work with buyers and sellers throughout DuPage County and
+          Chicago's western suburbs, helping clients understand the practical
+          decisions behind a purchase, sale, or relocation.
+        </p>
 
-      <p>
-        As a DuPage County resident, I understand that every real estate
-        transaction represents an important milestone in someone's life.
-      </p>
+        <p>
+          My approach is straightforward: communicate clearly, plan early,
+          explain the tradeoffs, and keep the transaction connected to the
+          reason you are moving in the first place.
+        </p>
 
-      <p>
-        Having lived in both Westmont and Bloomingdale, I've developed an
-        appreciation for the unique character of DuPage County communities
-        and the western suburbs of Chicago.
-      </p>
-
-      <p>
-        My goal is to provide clear communication, thoughtful advice, and
-        dedicated representation throughout every stage of the buying or
-        selling process.
-      </p>
-
+        <p>
+          For clients leaving Illinois, that can also mean coordinating the
+          Illinois side of the transaction with an introduction to an
+          appropriately licensed real estate professional in the destination
+          market.
+        </p>
+      </div>
     </div>
+  </section>
 
-  </div>
+  <section class="principles">
+    <div class="container">
+      <p class="eyebrow">What You Can Expect</p>
 
-</section>
+      <div class="principle-grid">
+        <article>
+          <span>01</span>
+          <h3>Clear communication</h3>
+          <p>You should understand what is happening, what comes next, and where a decision is actually required.</p>
+        </article>
 
+        <article>
+          <span>02</span>
+          <h3>Practical planning</h3>
+          <p>The transaction should fit the larger move, timing, and priorities rather than exist in isolation.</p>
+        </article>
+
+        <article>
+          <span>03</span>
+          <h3>Local perspective</h3>
+          <p>Market conditions and property considerations vary by community, price point, and property type.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="credentials">
+    <div class="container credentials-grid">
+      <div>
+        <p class="eyebrow">Professional Identity</p>
+        <h2>{site.agent.fullName}</h2>
+      </div>
+
+      <div class="details">
+        <div><span>Role</span><strong>{site.agent.title}</strong></div>
+        <div><span>Brokerage</span><strong>{site.agent.brokerage}</strong></div>
+        <div><span>Market</span><strong>{site.agent.market}</strong></div>
+        <div><span>Location</span><strong>{site.address.city}, {site.address.state}</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="container closing-inner">
+      <div>
+        <p class="eyebrow">Start a Conversation</p>
+        <h2>Tell me what you are planning.</h2>
+      </div>
+
+      <div class="actions">
+        <a class="button-premium" href="/contact/">Contact AJ</a>
+        <a href={`tel:${phoneHref}`}>{site.contact.phone}</a>
+        <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
-
-<style>
-
-.page-header{
-  background:var(--background);
-  padding:5rem 0 3rem;
-  text-align:center;
-}
-
-.about{
-  padding:5rem 0;
-}
-
-.about-grid{
-  display:grid;
-  grid-template-columns:320px 1fr;
-  gap:4rem;
-  align-items:start;
-}
-
-.about img{
-  width:100%;
-  border-radius:20px;
-  box-shadow:var(--shadow);
-}
-
-@media (max-width:900px){
-
-  .about-grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
-</style>
